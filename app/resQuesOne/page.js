@@ -26,7 +26,7 @@ export default function FeedBack() {
 
   const router = useRouter()
 
-  const [answerQ1, setAnswerq1] = useState("");
+  const [questionAnswer, setQuestionAnswer] = useState("");
   const [fbtool, setFBTool] = useState('No Selection')
 
   const onValueChange = (event) => {
@@ -36,7 +36,7 @@ export default function FeedBack() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!answerQ1 && !fbtool) {
+    if (!questionAnswer && !fbtool) {
       alert("Selection and Answer is required to Submit.");
       return;
     }
@@ -47,7 +47,7 @@ export default function FeedBack() {
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ answerQ1, fbtool }),
+        body: JSON.stringify({ questionAnswer, fbtool }),
       });
 
       if (res.ok) {
@@ -130,18 +130,16 @@ export default function FeedBack() {
 
       </div>
 
-     
-
       <div className="flex-container2">
         <input
-          onChange={(e) => setAnswerq1(e.target.value)}
-          value={answerQ1}
+          onChange={(e) => setQuestionAnswer(e.target.value)}
+          value={questionAnswer}
           className="border border-slate-500 px-8 py-2"
           type="text"
           placeholder="Your answer."
         />
         <button type="submit">
-          SUBMIT RESPONSE
+          SUBMIT RESPONSE and GO TO QUESTION 2
         </button>
       </div>
     </form>
