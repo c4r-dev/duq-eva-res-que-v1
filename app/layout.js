@@ -5,8 +5,8 @@ import './globals.css'
 
 
 export const metadata = {
-  title: "R2R Feedback",
-  description: "R2R Feedback",
+  title: "Research Questions",
+  description: "Research Questions",
 };
 
 export default function RootLayout({ children }) {

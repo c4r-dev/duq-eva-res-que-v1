@@ -25,7 +25,7 @@ export default function FeedBack() {
     e.preventDefault();
 
     if (!rqtool)  {
-      alert("Selection is required to Submit.");
+      alert("Selection is required to Continue.");
       return;
     }
 

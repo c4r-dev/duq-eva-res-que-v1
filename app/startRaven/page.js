@@ -1,24 +1,21 @@
 'use client'
 
-import React, { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+
 
 import Image from 'next/image';
 
 import Raven1 from "@/assets/feedback-button-1.svg";
 
-
 export default function FeedBack() {
 
   const searchParams = useSearchParams()
-  const rqtool = searchParams.get("rqtool")
-
-  const [selected, setSelected] = useState(rqtool)
+  const selected = searchParams.get("rqtool")
 
   const router = useRouter()
 
   const handleSubmit = async () => {
-    router.push(`/resQues1?selected=${selected}`);
+    router.push(`/resQuesOne?selected=${selected}`);
   };
 
   return (
