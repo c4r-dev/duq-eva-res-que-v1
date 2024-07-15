@@ -13,7 +13,7 @@ import Raven3 from "@/assets/feedback-button-3.svg";
 export default function FeedBack() {
 
   const searchParams = useSearchParams()
-  const selected = searchParams.get("rqtool")
+  const selected = searchParams.get("selected")
 
   const router = useRouter()
 
@@ -28,7 +28,7 @@ export default function FeedBack() {
     e.preventDefault();
 
     if (!answerQ1 && !fbtool) {
-      alert("Selection or Answer is required to Submit.");
+      alert("Selection and Answer is required to Submit.");
       return;
     }
 
@@ -57,11 +57,11 @@ export default function FeedBack() {
       <div>
         <h1>Formulating a Valid Research Question</h1>
       </div>
-     
-<p>
 
+      <p>
 
-</p>
+        working paragraph
+      </p>
 
       <div className="flex-container">
 

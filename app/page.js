@@ -23,6 +23,12 @@ export default function FeedBack() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!rqtool)  {
+      alert("Selection is required to Submit.");
+      return;
+    }
+
     router.push(`/startRaven?rqtool=${rqtool}`);
 
   };
