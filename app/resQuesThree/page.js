@@ -69,7 +69,7 @@ export default function ResQuesTwo() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <div>
         <h1>Formulating a Valid Research Question</h1>
-        <h2>Question 2</h2>
+        <h2>Question {number}</h2>
       </div>
 
       <p>
@@ -144,7 +144,7 @@ export default function ResQuesTwo() {
           placeholder="Your answer."
         />
         <button type="submit">
-          SUBMIT RESPONSE and GO TO QUESTION 3
+          SUBMIT RESPONSE and CONTINUE
         </button>
       </div>
     </form>

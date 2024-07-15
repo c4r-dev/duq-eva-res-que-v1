@@ -35,7 +35,7 @@ export default function FeedBack() {
           />
         </div>
       <div>
-        {selected}
+        <br></br>
       </div>
 
       <div>

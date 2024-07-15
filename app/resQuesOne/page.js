@@ -69,7 +69,7 @@ export default function ResQuesOne() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <div>
         <h1>Formulating a Valid Research Question</h1>
-        <h2>Question 1</h2>
+        <h2>Question {number}</h2>
       </div>
 
       <p>
