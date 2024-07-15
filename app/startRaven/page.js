@@ -14,7 +14,8 @@ export default function FeedBack() {
 
   const router = useRouter()
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     router.push(`/resQuesOne?selected=${selected}`);
   };
 
