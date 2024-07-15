@@ -17,9 +17,13 @@ export default function FeedBack() {
   const searchParams = useSearchParams()
   const selected = searchParams.get("selected")
   let question = ''
+  let number = ''
+  let category = ''
 
   Questions.forEach(function(elem){
     if (elem.category === selected && elem.number === "1") {
+      category=elem.category
+      number=elem.number
       question = elem.question
     }
   })
@@ -47,7 +51,7 @@ export default function FeedBack() {
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ questionAnswer, fbtool }),
+        body: JSON.stringify({ category, number, fbtool, questionAnswer }),
       });
 
       if (res.ok) {

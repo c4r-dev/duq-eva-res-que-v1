@@ -1,10 +1,10 @@
 import connectMongoDB from "@/libs/mongodb";
-import StudentInput from "@/models/r2rstudentfeedback";
+import ErqresearchQAns from "@/models/erqresearchQAns";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
-  const { answerQ1, fbtool } = await request.json();
+  const { category, number, fbtool, questionAnswer } = await request.json();
   await connectMongoDB();
-  await StudentInput.create({ answerQ1, fbtool });
-  return NextResponse.json({ message: "Feedback Submitted" }, { status: 201 });
+  await ErqresearchQAns.create({ category, number, fbtool, questionAnswer });
+  return NextResponse.json({ message: "Answers Submitted" }, { status: 201 });
 }
