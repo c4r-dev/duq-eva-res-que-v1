@@ -1,0 +1,46 @@
+[{
+  "category": "ph",
+  "number": "1",
+  "question": "Determine whether disparities in the receipt of appropriate analgesia exist among people with arthritis with chronic pain."
+},
+{
+  "category": "ph",
+  "number": "2",
+  "question": "Does exercise reduce depression more than selective serotonin reuptake inhibitors in adults?"
+},
+{
+  "category": "ph",
+  "number": "3",
+  "question": "How common is epilepsy in children?"
+},
+{
+  "category": "cs",
+  "number": "1",
+  "question": "Is daily aerobic exercise more effective than stretching for improvement of pain symptoms in sedentary patients with arthritis aged 30-75 with moderate disease severity?"
+},
+{
+  "category": "cs",
+  "number": "2",
+  "question": "Is antiplatelet medication administered after an myocardial infarction superior to aspirin?"
+},
+{
+  "category": "cs",
+  "number": "3",
+  "question": "Explore the effects of music therapy on cognitive function and mental wellbeing of patients with dementia."
+},
+{
+  "category": "bs",
+  "number": "1",
+  "question": "Investigate the susceptibility of the blood brain barrier and model SARS-CoV-1 infection in the endothelial cell layer of the neurovascular unit."
+},
+{
+  "category": "bs",
+  "number": "2",
+  "question": "Explore the influence of exosomes derived from neural stem cells on the spinal cord regeneration."
+},
+{
+  "category": "bs",
+  "number": "3",
+  "question": "Identify the role of α-synuclein phosphorylated at Serine129 (pS129) in neuronal activity."
+}
+]
