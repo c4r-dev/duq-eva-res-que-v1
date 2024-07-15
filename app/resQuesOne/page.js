@@ -59,7 +59,9 @@ export default function FeedBack() {
       </div>
 
       <p>
-
+        {selected}
+        <br></br>
+        <br></br>
         working paragraph
       </p>
 
