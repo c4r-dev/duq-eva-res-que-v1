@@ -21,7 +21,7 @@ export default function ResQuesTwo() {
   let category = ''
 
   Questions.forEach(function(elem){
-    if (elem.category === selected && elem.number === "2") {
+    if (elem.category === selected && elem.number === "3") {
       category=elem.category
       number=elem.number
       question = elem.question
@@ -55,7 +55,7 @@ export default function ResQuesTwo() {
       });
 
       if (res.ok) {
-        router.push(`/resQuesThree?selected=${selected}`);
+        router.push('/');
       } else {
         throw new Error("Failed to create an answer.");
       }
