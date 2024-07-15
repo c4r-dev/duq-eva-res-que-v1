@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
+import Questions from "../questions/questions.json"
+
 import Image from 'next/image';
 
 import Raven1 from "@/assets/feedback-button-1.svg";
@@ -14,6 +16,13 @@ export default function FeedBack() {
 
   const searchParams = useSearchParams()
   const selected = searchParams.get("selected")
+  let question = ''
+
+  Questions.forEach(function(elem){
+    if (elem.category === selected && elem.number === "1") {
+      question = elem.question
+    }
+  })
 
   const router = useRouter()
 
@@ -59,11 +68,12 @@ export default function FeedBack() {
       </div>
 
       <p>
-        {selected}
-        <br></br>
-        <br></br>
-        Research Question 1
+        <h2>{question}</h2>
       </p>
+
+      <div><br></br></div>
+      <div><h2>How good is this research question?</h2></div>
+      <div><br></br></div>
 
       <div className="flex-container">
 
@@ -81,6 +91,7 @@ export default function FeedBack() {
             src={Raven1}
             alt="Follow us at c4r.io"
           />
+          Good
         </label>
 
         <input
@@ -97,6 +108,7 @@ export default function FeedBack() {
             src={Raven2}
             alt="Follow us at c4r.io"
           />
+          Better
         </label>
 
         <input
@@ -113,11 +125,12 @@ export default function FeedBack() {
             src={Raven3}
             alt="Follow us at c4r.io"
           />
+          Great
         </label>
 
       </div>
 
-      <div><br></br></div>
+     
 
       <div className="flex-container2">
         <input

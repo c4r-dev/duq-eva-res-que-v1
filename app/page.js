@@ -56,6 +56,7 @@ export default function FeedBack() {
             src={Raven1}
             alt="Follow us at c4r.io"
           />
+          Basic Science
         </label>
 
         <input
@@ -72,6 +73,7 @@ export default function FeedBack() {
             src={Raven2}
             alt="Follow us at c4r.io"
           />
+          Clinical Science
         </label>
 
         <input
@@ -88,6 +90,7 @@ export default function FeedBack() {
             src={Raven3}
             alt="Follow us at c4r.io"
           />
+          Public Health
         </label>
 
       </div>
