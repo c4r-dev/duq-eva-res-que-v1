@@ -12,7 +12,7 @@ import Raven2 from "@/assets/feedback-button-2.svg";
 import Raven3 from "@/assets/feedback-button-3.svg";
 
 
-export default function ResQuesOne() {
+export default function ResQuesTwo() {
 
   const searchParams = useSearchParams()
   const selected = searchParams.get("selected")
@@ -21,7 +21,7 @@ export default function ResQuesOne() {
   let category = ''
 
   Questions.forEach(function(elem){
-    if (elem.category === selected && elem.number === "1") {
+    if (elem.category === selected && elem.number === "2") {
       category=elem.category
       number=elem.number
       question = elem.question
@@ -69,7 +69,7 @@ export default function ResQuesOne() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <div>
         <h1>Formulating a Valid Research Question</h1>
-        <h2>Question 1</h2>
+        <h2>Question 2</h2>
       </div>
 
       <p>
@@ -144,7 +144,7 @@ export default function ResQuesOne() {
           placeholder="Your answer."
         />
         <button type="submit">
-          SUBMIT RESPONSE and GO TO QUESTION 2
+          SUBMIT RESPONSE and GO TO QUESTION 3
         </button>
       </div>
     </form>
