@@ -14,15 +14,9 @@ export default function FeedBack() {
 
   const router = useRouter()
 
-  const [rqtool, setRQTool] = useState('')
-
-  const onValueChange = (event) => {
-    setRQTool(event.target.value)
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    router.push("/startRaven");
+    // router.push("/closeWindow");
 
   };
 
@@ -37,13 +31,13 @@ export default function FeedBack() {
 
         <input
           type="radio"
-          name="rqtoolanswer"
-          id="rqtoolbs"
-          value={"bs"}
-          checked={rqtool === 'bs'}
+          name="fbtoolanswer"
+          id="fbtoolns"
+          value={"Not Sure"}
+          checked={fbtool === 'Not Sure'}
           onChange={onValueChange}
         />
-        <label htmlFor="rqtoolbs">
+        <label htmlFor="fbtoolns">
           <Image
             priority
             src={Raven1}
@@ -53,13 +47,13 @@ export default function FeedBack() {
 
         <input
           type="radio"
-          name="rqtoolanswer"
-          id="rqtoolcs"
-          value={"cs"}
-          checked={rqtool === 'cs'}
+          name="fbtoolanswer"
+          id="fbtoolgd"
+          value={"Good"}
+          checked={fbtool === 'Good'}
           onChange={onValueChange}
         />
-        <label htmlFor="rqtoolcs">
+        <label htmlFor="fbtoolgd">
           <Image
             priority
             src={Raven2}
@@ -69,13 +63,13 @@ export default function FeedBack() {
 
         <input
           type="radio"
-          name="rqtoolanswer"
-          id="rqtoolph"
-          value={"ph"}
-          checked={rqtool === 'ph'}
+          name="fbtoolanswer"
+          id="fbtoolgr"
+          value={"Great"}
+          checked={fbtool === 'Great'}
           onChange={onValueChange}
         />
-        <label htmlFor="rqtoolph">
+        <label htmlFor="fbtoolgr">
           <Image
             priority
             src={Raven3}
@@ -86,7 +80,7 @@ export default function FeedBack() {
       </div>
       <div>
         <button type="submit">
-          CONTINUE
+          submit
         </button>
       </div>
     </form>
