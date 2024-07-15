@@ -5,9 +5,10 @@ import { useRouter } from "next/navigation";
 
 import Image from 'next/image';
 
-import Raven1 from "@/assets/feedback-button-text-1.svg";
-import Raven2 from "@/assets/feedback-button-text-2.svg";
-import Raven3 from "@/assets/feedback-button-text-3.svg";
+import Raven1 from "@/assets/feedback-button-1.svg";
+import Raven2 from "@/assets/feedback-button-1.svg";
+import Raven3 from "@/assets/feedback-button-1.svg";
+
 
 
 export default function FeedBack() {
@@ -22,7 +23,7 @@ export default function FeedBack() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    router.push("/startRaven");
+    router.push(`/startRaven?rqtool=${rqtool}`);
 
   };
 
