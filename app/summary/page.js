@@ -1,7 +1,6 @@
 'use client'
 
 import React from "react";
-import { useRouter, useSearchParams } from "next/navigation";
 
 import Questions from "../questions/questions.json"
 
@@ -9,9 +8,12 @@ import Image from 'next/image';
 
 import Raven1 from "@/assets/feedback-button-1.svg";
 
-const router = useRouter()
+import { useRouter, useSearchParams } from "next/navigation";
+
 
 export default function Summary() {
+
+  const router = useRouter()
 
   const searchParams = useSearchParams()
   const selected = searchParams.get("selected")
@@ -56,14 +58,30 @@ export default function Summary() {
       </div>
 
       <div>
-        <h2>Research Question {number}</h2>
+        <h2>Research Question {number1}</h2>
         <p>
-          <h2>{question}</h2>
+          <h2>{question1}</h2>
+        </p>
+      </div>
+
+      <div>
+        <h2>Research Question {number2}</h2>
+        <p>
+          <h2>{question2}</h2>
+        </p>
+      </div>
+
+      <div>
+        <h2>Research Question {number3}</h2>
+        <p>
+          <h2>{question3}</h2>
         </p>
       </div>
 
       <div>
         <button onClick="handleSubmit()">CONTINUE</button>
+        <br></br>
+        <br></br>
       </div>
 
       <div>
