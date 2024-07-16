@@ -28,12 +28,12 @@ export default function FeedBack() {
         <h1>We will be evalutating 3 research questions in a row.</h1>
       </div>
       <div>
-          <Image
-            priority
-            src={Raven1}
-            alt="Follow us at c4r.io"
-          />
-        </div>
+        <Image
+          priority
+          src={Raven1}
+          alt="Follow us at c4r.io"
+        />
+      </div>
       <div>
         <br></br>
       </div>

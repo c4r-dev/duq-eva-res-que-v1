@@ -55,7 +55,7 @@ export default function ResQuesTwo() {
       });
 
       if (res.ok) {
-        router.push('/');
+        router.push(`/summary?selected=${selected}`);
       } else {
         throw new Error("Failed to create an answer.");
       }
