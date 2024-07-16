@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 import Raven1 from "@/assets/feedback-button-1.svg";
 
-export default function FeedBack() {
+export default function ResQuesThree() {
 
   const searchParams = useSearchParams()
   const selected = searchParams.get("rqtool")
