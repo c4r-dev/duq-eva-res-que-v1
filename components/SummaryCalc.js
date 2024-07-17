@@ -65,9 +65,7 @@ export default function SummaryCalc() {
     router.push(`/`);
   };
 
-  console.log("*")
-  console.log(outputs)
-  console.log("*")
+  
 
   if (!outputs) return <div>Loading...</div>;
 
@@ -81,20 +79,15 @@ export default function SummaryCalc() {
       </div>
 
       <div>
+        <h2>Research Question {number1}</h2>
+        <h2>{question1}</h2>
         <ul>
           {outputs.map((t) => (
             <li key={t._id}>
               {t.questionAnswer}
             </li>
           ))}
-          <li>dave</li>
         </ul>
-      </div>
-
-
-      <div>
-        <h2>Research Question {number1}</h2>
-        <h2>{question1}</h2>
       </div>
 
       <div>
