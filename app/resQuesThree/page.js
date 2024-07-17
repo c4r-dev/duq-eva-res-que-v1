@@ -86,8 +86,8 @@ export default function ResQuesTwo() {
           type="radio"
           name="fbtoolanswer"
           id="fbtoolns"
-          value={"Not Sure"}
-          checked={fbtool === 'Not Sure'}
+          value={"Good"}
+          checked={fbtool === 'Good'}
           onChange={onValueChange}
         />
         <label htmlFor="fbtoolns">
@@ -103,8 +103,8 @@ export default function ResQuesTwo() {
           type="radio"
           name="fbtoolanswer"
           id="fbtoolgd"
-          value={"Good"}
-          checked={fbtool === 'Good'}
+          value={"Better"}
+          checked={fbtool === 'Better'}
           onChange={onValueChange}
         />
         <label htmlFor="fbtoolgd">

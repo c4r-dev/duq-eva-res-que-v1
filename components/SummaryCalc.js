@@ -112,7 +112,7 @@ export default function SummaryCalc() {
   q1.betterpct = q1.bettercnt / count
   q1.greatpct = q1.greatcnt / count
   count = q2.goodcnt + q2.bettercnt + q2.greatcnt
-  q2.goodpct = q2goodcnt / count
+  q2.goodpct = q2.goodcnt / count
   q2.betterpct = q2.bettercnt / count
   q2.greatpct = q2.greatcnt / count
   count = q3.goodcnt + q3.bettercnt + q3.greatcnt
