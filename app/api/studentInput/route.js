@@ -10,7 +10,12 @@ export async function POST(request) {
 }
 
 export async function GET() {
+  try {
   await connectMongoDB();
-  const erqresearchQAns= await ErqresearchQAns.find();
-  return NextResponse.json({ erqresearchQAns });
+  const erqresearchQAns = await ErqresearchQAns.find();
+  console.log(erqresearchQAns)
+  return NextResponse.json(erqresearchQAns);
+  } catch (error) {
+    return NextResponse.json([{"questionAnswer": "first answer from route"}])
+  }
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect} from "react";
+import React, { useState, useEffect} from "react";
 
 import Questions from "../app/questions/questions.json"
 
@@ -10,14 +10,14 @@ import Raven1 from "@/assets/feedback-button-1.svg";
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-let output
-
 export default function SummaryCalc() {
 
   const router = useRouter()
 
   const searchParams = useSearchParams()
   const selected = searchParams.get("selected")
+
+  const [output, setOutput] = useState(null)
 
   let question1 = ''
   let question2 = ''
@@ -47,10 +47,9 @@ export default function SummaryCalc() {
     const fetchData = async () => {
 
       try {
-        const res = await fetch("/api/studentInput");
-
-        const data = await res.json();
-        output = data.erqresearchQAns
+        const response = await fetch("/api/studentInput");
+        const result = await response.json();
+        setOutput(result);
 
       } catch (error) {
         console.log("Error loading student answers: ", error);
@@ -66,6 +65,8 @@ export default function SummaryCalc() {
     e.preventDefault();
     router.push(`/`);
   };
+
+  if (!output) return <div>Loading...</div>;
 
   return (
 
@@ -83,7 +84,6 @@ export default function SummaryCalc() {
             <div>t.questionAnswer</div>
           }
           )}
-
         </ul>
       </div>
 

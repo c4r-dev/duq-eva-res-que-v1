@@ -13,6 +13,4 @@ const erqresearchQAnsSchema = new Schema(
   }
 );
 
-const ErqresearchQAns = mongoose.models.ErqresearchQAns || mongoose.model("ErqresearchQAns", erqresearchQAnsSchema);
-
-export default ErqresearchQAns;
+export default mongoose.models.ErqresearchQAns || mongoose.model("ErqresearchQAns", erqresearchQAnsSchema);
