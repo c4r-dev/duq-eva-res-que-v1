@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 
-import Questions from "./app/questions/questions.json"
+import Questions from "../app/questions/questions.json"
 
 import Image from 'next/image';
 
