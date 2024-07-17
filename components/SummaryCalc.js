@@ -28,7 +28,6 @@ export default function SummaryCalc() {
 
   Questions.forEach(function (elem) {
     if (elem.category === selected) {
-
       if (elem.number === "1") {
         number1 = elem.number
         question1 = elem.question
@@ -66,6 +65,10 @@ export default function SummaryCalc() {
     router.push(`/`);
   };
 
+  console.log("*")
+  console.log(output)
+  console.log("*")
+
   if (!output) return <div>Loading...</div>;
 
   return (
@@ -77,13 +80,15 @@ export default function SummaryCalc() {
         <h2>What did other students think:</h2>
       </div>
 
+      <div>dave</div>
 
       <div>
         <ul>
           {output.map((t) => {
-            <div>t.questionAnswer</div>
+            <li>t.questionAnswer</li>
           }
           )}
+          <li>dave</li>
         </ul>
       </div>
 
