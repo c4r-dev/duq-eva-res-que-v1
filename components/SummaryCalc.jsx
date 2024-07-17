@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Questions from "../app/questions/questions.json"
 
@@ -15,6 +15,8 @@ let output
 export default function SummaryCalc() {
 
   const router = useRouter()
+
+  const [output, setOutput]=useState(null)
 
   const searchParams = useSearchParams()
   const selected = searchParams.get("selected")
@@ -50,7 +52,7 @@ export default function SummaryCalc() {
         const res = await fetch("/api/studentInput");
 
         const data = await res.json();
-        output = data.erqresearchQAns
+        setOutput(data.erqresearchQAns)
 
       } catch (error) {
         console.log("Error loading student answers: ", error);
@@ -62,7 +64,7 @@ export default function SummaryCalc() {
 
   }, []);
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     router.push(`/`);
   };
@@ -76,11 +78,23 @@ export default function SummaryCalc() {
         <h2>What did other students think:</h2>
       </div>
 
+
+      <div>
+        <ul>
+          {output.map((t) => {
+            <div>t.questionAnswer</div>
+          }
+          )}
+
+        </ul>
+      </div>
+
+
       <div>
         <h2>Research Question {number1}</h2>
         <h2>{question1}</h2>
       </div>
-  
+
       <div>
         <h2>Research Question {number2}</h2>
         <h2>{question2}</h2>
