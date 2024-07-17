@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 import Questions from "../app/questions/questions.json"
 
@@ -17,7 +17,7 @@ export default function SummaryCalc() {
   const searchParams = useSearchParams()
   const selected = searchParams.get("selected")
 
-  const [output, setOutput] = useState(null)
+  const [outputs, setOutput] = useState(null)
 
   let question1 = ''
   let question2 = ''
@@ -66,10 +66,10 @@ export default function SummaryCalc() {
   };
 
   console.log("*")
-  console.log(output)
+  console.log(outputs)
   console.log("*")
 
-  if (!output) return <div>Loading...</div>;
+  if (!outputs) return <div>Loading...</div>;
 
   return (
 
@@ -80,14 +80,13 @@ export default function SummaryCalc() {
         <h2>What did other students think:</h2>
       </div>
 
-      <div>dave</div>
-
       <div>
         <ul>
-          {output.map((t) => {
-            <li>t.questionAnswer</li>
-          }
-          )}
+          {outputs.map((t) => (
+            <li key={t._id}>
+              {t.questionAnswer}
+            </li>
+          ))}
           <li>dave</li>
         </ul>
       </div>
