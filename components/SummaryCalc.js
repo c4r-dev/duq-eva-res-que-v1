@@ -65,9 +65,60 @@ export default function SummaryCalc() {
     router.push(`/`);
   };
 
-  
-
   if (!outputs) return <div>Loading...</div>;
+
+  let Q = {
+    goodcnt: 0,
+    bettercnt: 0,
+    greatcnt: 0,
+    goodpct: 0,
+    betterpct: 0,
+    greatpct: 0
+  }
+  let q1 = Object.create(Q)
+  let q2 = Object.create(Q)
+  let q3 = Object.create(Q)
+
+  outputs.forEach((item) => {
+    if (item.number === "1") {
+      if (item.fbtool === "Good") {
+        q1.goodcnt++
+      } else if (item.fbtool === "Better") {
+        q1.bettercnt++
+      } else {
+        q1.greatcnt++
+      }
+    } else if (item.number === "2") {
+      if (item.fbtool === "Good") {
+        q2.goodcnt++
+      } else if (item.fbtool === "Better") {
+        q2.bettercnt++
+      } else {
+        q2.greatcnt++
+      }
+    } else {
+      if (item.fbtool === "Good") {
+        q3.goodcnt++
+      } else if (item.fbtool === "Better") {
+        q3.bettercnt++
+      } else {
+        q3.greatcnt++
+      }
+    }
+  });
+
+  let count = q1.goodcnt + q1.bettercnt + q1.greatcnt
+  q1.goodpct = q1.goodcnt / count
+  q1.betterpct = q1.bettercnt / count
+  q1.greatpct = q1.greatcnt / count
+  count = q2.goodcnt + q2.bettercnt + q2.greatcnt
+  q2.goodpct = q2goodcnt / count
+  q2.betterpct = q2.bettercnt / count
+  q2.greatpct = q2.greatcnt / count
+  count = q3.goodcnt + q3.bettercnt + q3.greatcnt
+  q3.goodpct = q3.goodcnt / count
+  q3.betterpct = q3.bettercnt / count
+  q3.greatpct = q3.greatcnt / count
 
   return (
 
@@ -81,23 +132,37 @@ export default function SummaryCalc() {
       <div>
         <h2>Research Question {number1}</h2>
         <h2>{question1}</h2>
-        <ul>
-          {outputs.map((t) => (
-            <li key={t._id}>
-              {t.questionAnswer}
-            </li>
-          ))}
-        </ul>
+        <div>
+          <br></br>
+          {q1.goodcnt}|{q1.bettercnt}|{q1.greatcnt}
+          <br></br>
+          {q1.goodpct}|{q1.betterpct}|{q1.greatpct}
+          <br></br>
+        </div>
       </div>
 
       <div>
         <h2>Research Question {number2}</h2>
         <h2>{question2}</h2>
+        <div>
+          <br></br>
+          {q2.goodcnt}|{q2.bettercnt}|{q2.greatcnt}
+          <br></br>
+          {q2.goodpct}|{q2.betterpct}|{q2.greatpct}
+          <br></br>
+        </div>
       </div>
 
       <div>
         <h2>Research Question {number3}</h2>
         <h2>{question3}</h2>
+        <div>
+          <br></br>
+          {q3.goodcnt}|{q3.bettercnt}|{q3.greatcnt}
+          <br></br>
+          {q3.goodpct}|{q3.betterpct}|{q3.greatpct}
+          <br></br>
+        </div>
       </div>
 
       <div>
