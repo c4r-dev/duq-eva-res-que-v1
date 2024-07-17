@@ -73,7 +73,7 @@ export default function ResQuesTwo() {
       </div>
 
       <p>
-        <h2>{question}</h2>
+        {question}
       </p>
 
       <div><br></br></div>

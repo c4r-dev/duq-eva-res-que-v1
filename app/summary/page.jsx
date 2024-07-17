@@ -1,6 +1,6 @@
 'use client'
 
-import React from "react";
+import React, { Fragment, useEffect } from "react";
 
 import Questions from "../questions/questions.json"
 
@@ -10,6 +10,7 @@ import Raven1 from "@/assets/feedback-button-1.svg";
 
 import { useRouter, useSearchParams } from "next/navigation";
 
+let output
 
 export default function Summary() {
 
@@ -41,7 +42,24 @@ export default function Summary() {
     }
   })
 
- 
+  useEffect(() => {
+
+    const fetchData = async () => {
+
+      try {
+        const res = await fetch("/api/studentInput");
+
+        const data = await res.json();
+        output = data.erqresearchQAns
+
+      } catch (error) {
+        console.log("Error loading student answers: ", error);
+
+      }
+    };
+
+    fetchData()
+  }, []);
 
 
   const handleSubmit = async (e) => {
@@ -52,6 +70,7 @@ export default function Summary() {
   return (
 
     <>
+
       <div>
         <h1>Formulating a Valid Research Question</h1>
         <h2>What did other students think:</h2>
@@ -60,21 +79,21 @@ export default function Summary() {
       <div>
         <h2>Research Question {number1}</h2>
         <p>
-          <h2>{question1}</h2>
+          {question1}
         </p>
       </div>
 
       <div>
         <h2>Research Question {number2}</h2>
         <p>
-          <h2>{question2}</h2>
+          {question2}
         </p>
       </div>
 
       <div>
         <h2>Research Question {number3}</h2>
         <p>
-          <h2>{question3}</h2>
+          {question3}
         </p>
       </div>
 
@@ -91,6 +110,7 @@ export default function Summary() {
           alt="Follow us at c4r.io"
         />
       </div>
+
     </>
   );
 }

@@ -8,3 +8,9 @@ export async function POST(request) {
   await ErqresearchQAns.create({ category, number, fbtool, questionAnswer });
   return NextResponse.json({ message: "Answers Submitted" }, { status: 201 });
 }
+
+export async function GET() {
+  await connectMongoDB();
+  const erqresearchQAns= await ErqresearchQAns.find();
+  return NextResponse.json({ erqresearchQAns });
+}
