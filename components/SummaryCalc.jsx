@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 
 import Questions from "../app/questions/questions.json"
 
@@ -15,8 +15,6 @@ let output
 export default function SummaryCalc() {
 
   const router = useRouter()
-
-  const [output, setOutput]=useState(null)
 
   const searchParams = useSearchParams()
   const selected = searchParams.get("selected")
@@ -52,7 +50,7 @@ export default function SummaryCalc() {
         const res = await fetch("/api/studentInput");
 
         const data = await res.json();
-        setOutput(data.erqresearchQAns)
+        output = data.erqresearchQAns
 
       } catch (error) {
         console.log("Error loading student answers: ", error);

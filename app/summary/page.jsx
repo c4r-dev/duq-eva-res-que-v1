@@ -1,7 +1,11 @@
 "use client"
 
-import SummaryCalc from "@/components/summaryCalc";
+import dynamic from "next/dynamic";
+
+const DynamicComponent = dynamic(() => import('@/components/summaryCalc'), { ssr: false })
 
 export default function Summary() {
-  return <SummaryCalc />;
+  return (
+    <DynamicComponent />
+  );
 }
