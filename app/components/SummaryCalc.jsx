@@ -12,7 +12,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 let output
 
-export default function Summary() {
+export default function SummaryCalc() {
 
   const router = useRouter()
 
@@ -59,15 +59,13 @@ export default function Summary() {
     };
 
     fetchData()
+
   }, []);
 
-
-  // function ActionLink() {
-    function handleClick(e) {
-      e.preventDefault();
-      router.push('/');
-    }
-  // }
+  function handleSubmit(e) {
+    e.preventDefault();
+    router.push(`/`);
+  };
 
   return (
 
@@ -80,27 +78,21 @@ export default function Summary() {
 
       <div>
         <h2>Research Question {number1}</h2>
-        <p>
-          {question1}
-        </p>
+        <h2>{question1}</h2>
       </div>
-
+  
       <div>
         <h2>Research Question {number2}</h2>
-        <p>
-          {question2}
-        </p>
+        <h2>{question2}</h2>
       </div>
 
       <div>
         <h2>Research Question {number3}</h2>
-        <p>
-          {question3}
-        </p>
+        <h2>{question3}</h2>
       </div>
 
       <div>
-        <button onClick={handleClick}>CONTINUE</button>
+        <button onSubmit={handleSubmit}>CONTINUE</button>
         <br></br>
         <br></br>
       </div>
