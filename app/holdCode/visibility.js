@@ -12,4 +12,3 @@ const [isVisible, setIsVisible] = useState(true);
       {isVisible && <div>This is a div that can be hidden</div>}
     </div>
   );
-}
