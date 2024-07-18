@@ -180,7 +180,7 @@ export default function SummaryCalc() {
             <div>
               <br></br>
               {q1Answers.map((item) => (
-               <li key={(generateKey())}>{item}</li>
+               <li key={generateKey()}>{item}</li>
               ))}
             </div>
           )}
@@ -201,7 +201,7 @@ export default function SummaryCalc() {
               <br></br>
               <ul>
                 {q2Answers.map((item) => (
-                  <li key={(generateKey())}>{item}</li>
+                  <li key={generateKey()}>{item}</li>
                 ))}
               </ul>
             </div>
@@ -223,7 +223,7 @@ export default function SummaryCalc() {
               <br></br>
               <ul>
                 {q3Answers.map((item) => (
-                  <li key={(generateKey())}>{item}</li>
+                  <li key={generateKey()}>{item}</li>
                 ))}
               </ul>
             </div>
