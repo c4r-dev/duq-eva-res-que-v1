@@ -31,7 +31,7 @@ export default function ResQuesOne() {
   const router = useRouter()
 
   const [questionAnswer, setQuestionAnswer] = useState("");
-  const [fbtool, setFBTool] = useState('No Selection')
+  const [fbtool, setFBTool] = useState('')
 
   const onValueChange = (event) => {
     setFBTool(event.target.value)
@@ -40,7 +40,7 @@ export default function ResQuesOne() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!questionAnswer && !fbtool) {
+    if (!questionAnswer || !fbtool) {
       alert("Selection and Answer is required to Submit.");
       return;
     }
