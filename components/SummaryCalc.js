@@ -28,7 +28,6 @@ export default function SummaryCalc() {
   let number1 = ''
   let number2 = ''
   let number3 = ''
-  let listKey = 0
 
   Questions.forEach(function (elem) {
     if (elem.category === selected) {
@@ -154,10 +153,6 @@ export default function SummaryCalc() {
     setIs3Visible(!is3Visible)
   };
 
-  function generateKey() {
-    return listKey++
-  }
-
   return (
 
     <>
@@ -179,8 +174,8 @@ export default function SummaryCalc() {
           {is1Visible && (
             <div>
               <br></br>
-              {q1Answers.map((item) => (
-               <li key={generateKey()}>{item}</li>
+              {q1Answers.map((item, index) => (
+               <li key={index}>{item}</li>
               ))}
             </div>
           )}
@@ -200,8 +195,8 @@ export default function SummaryCalc() {
             <div>
               <br></br>
               <ul>
-                {q2Answers.map((item) => (
-                  <li key={generateKey()}>{item}</li>
+                {q2Answers.map((item, index) => (
+                  <li key={index}>{item}</li>
                 ))}
               </ul>
             </div>
@@ -222,8 +217,8 @@ export default function SummaryCalc() {
             <div>
               <br></br>
               <ul>
-                {q3Answers.map((item) => (
-                  <li key={generateKey()}>{item}</li>
+                {q3Answers.map((item, index) => (
+                  <li key={index}>{item}</li>
                 ))}
               </ul>
             </div>
