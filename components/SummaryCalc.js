@@ -18,6 +18,9 @@ export default function SummaryCalc() {
   const selected = searchParams.get("selected")
 
   const [outputs, setOutput] = useState(null)
+  const [is1Visible, setIs1Visible] = useState(false);
+  const [is2Visible, setIs2Visible] = useState(false);
+  const [is3Visible, setIs3Visible] = useState(false);
 
   let question1 = ''
   let question2 = ''
@@ -59,11 +62,6 @@ export default function SummaryCalc() {
     fetchData()
 
   }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    router.push(`/`);
-  };
 
   if (!outputs) return <div>Loading...</div>;
 
@@ -143,6 +141,18 @@ export default function SummaryCalc() {
   q3.betterpct = Math.round(q3.bettercnt / q3.totalcnt * 100)
   q3.greatpct = Math.round(q3.greatcnt / q3.totalcnt * 100)
 
+  const toggle1Visibility = () => {
+    setIs1Visible(!is1Visible)
+  };
+
+  const toggle2Visibility = () => {
+    setIs2Visible(!is2Visible)
+  };
+
+  const toggle3Visibility = () => {
+    setIs3Visible(!is3Visible)
+  };
+
   return (
 
     <>
@@ -158,13 +168,19 @@ export default function SummaryCalc() {
         <div>
           <h1>Good : Better : Great</h1>
           <h1>{q1.goodpct}% {q1.betterpct}% {q1.greatpct}%</h1>
-          <button onSubmit={handleSubmit}>HIDE ANSWERS</button>
-          <br></br>
-          <ul>
-            {q1Answers.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
+          <button onClick={toggle1Visibility}>
+            {is1Visible ? 'HIDE ' : 'SHOW '} ANSWERS
+          </button>
+          {is1Visible && (
+            <div>
+              <br></br>
+              <ul>
+                {q1Answers.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
 
@@ -174,13 +190,19 @@ export default function SummaryCalc() {
         <div>
           <h1>Good : Better : Great</h1>
           <h1>{q2.goodpct}% {q2.betterpct}% {q2.greatpct}%</h1>
-          <button onSubmit={handleSubmit}>HIDE ANSWERS</button>
-          <br></br>
-          <ul>
-            {q2Answers.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
+          <button onClick={toggle2Visibility}>
+            {is2Visible ? 'HIDE ' : 'SHOW '} ANSWERS
+          </button>
+          {is2Visible && (
+            <div>
+              <br></br>
+              <ul>
+                {q2Answers.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
 
@@ -190,14 +212,24 @@ export default function SummaryCalc() {
         <div>
           <h1>Good : Better : Great</h1>
           <h1>{q3.goodpct}% {q3.betterpct}% {q3.greatpct}%</h1>
-          <button onSubmit={handleSubmit}>HIDE ANSWERS</button>
-          <br></br>
-          <ul>
-            {q3Answers.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
+          <button onClick={toggle3Visibility}>
+            {is3Visible ? 'HIDE ' : 'SHOW '} ANSWERS
+          </button>
+          {is3Visible && (
+            <div>
+              <br></br>
+              <ul>
+                {q3Answers.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
+      </div>
+
+      <div>
+        <br></br>
       </div>
 
       <div>
