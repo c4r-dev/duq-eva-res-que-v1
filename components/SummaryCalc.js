@@ -12,7 +12,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SummaryCalc() {
 
-  const router = useRouter() 
+  const router = useRouter()
 
   const searchParams = useSearchParams()
   const selected = searchParams.get("selected")
@@ -82,46 +82,51 @@ export default function SummaryCalc() {
   let q1Answers = []
   let q2Answers = []
   let q3Answers = []
+  let q1a = []
+  let q2a = []
+  let q3a = []
 
   outputs.forEach((item) => {
-    if (item.number === "1") {
-      if (item.fbtool === "Good") {
-        q1.goodcnt++
-      } else if (item.fbtool === "Better") {
-        q1.bettercnt++
+    if (item.category === selected) {
+      if (item.number === "1") {
+        if (item.fbtool === "Good") {
+          q1.goodcnt++
+        } else if (item.fbtool === "Better") {
+          q1.bettercnt++
+        } else {
+          q1.greatcnt++
+        }
+        q1.totalcnt++
+        if (q1.totalcnt <= 10) {
+          q1a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
+          q1Answers.push(q1a)
+        }
+      } else if (item.number === "2") {
+        if (item.fbtool === "Good") {
+          q2.goodcnt++
+        } else if (item.fbtool === "Better") {
+          q2.bettercnt++
+        } else {
+          q2.greatcnt++
+        }
+        q2.totalcnt++
+        if (q2.totalcnt <= 10) {
+          q2a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
+          q2Answers.push(q2a)
+        }
       } else {
-        q1.greatcnt++
-      }
-      q1.totalcnt++
-      if (q1.totalcnt <= 10) {
-        let q1a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
-        q1Answers.push(q1a)
-      }
-    } else if (item.number === "2") {
-      if (item.fbtool === "Good") {
-        q2.goodcnt++
-      } else if (item.fbtool === "Better") {
-        q2.bettercnt++
-      } else {
-        q2.greatcnt++
-      }
-      q2.totalcnt++
-      if (q2.totalcnt <= 10) {
-        let q2a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
-        q2Answers.push(q2a)
-      }
-    } else {
-      if (item.fbtool === "Good") {
-        q3.goodcnt++
-      } else if (item.fbtool === "Better") {
-        q3.bettercnt++
-      } else {
-        q3.greatcnt++
-      }
-      q3.totalcnt++
-      if (q3.totalcnt <= 10) {
-        let q3a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
-        q3Answers.push(q3a)
+        if (item.fbtool === "Good") {
+          q3.goodcnt++
+        } else if (item.fbtool === "Better") {
+          q3.bettercnt++
+        } else {
+          q3.greatcnt++
+        }
+        q3.totalcnt++
+        if (q3.totalcnt <= 10) {
+          q3a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
+          q3Answers.push(q3a)
+        }
       }
     }
   });

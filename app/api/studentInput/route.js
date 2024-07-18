@@ -15,6 +15,6 @@ export async function GET() {
   const erqresearchQAns = await ErqresearchQAns.find();
   return NextResponse.json(erqresearchQAns);
   } catch (error) {
-    return NextResponse.json([{"questionAnswer": "first answer from route"}])
+    return NextResponse.json({ message: "No Answers Read"});
   }
 }
