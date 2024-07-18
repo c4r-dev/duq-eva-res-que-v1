@@ -134,6 +134,7 @@ export default function SummaryCalc() {
         <h2>{question1}</h2>
         <div>
           <h1>{q1.goodpct}% {q1.betterpct}% {q1.greatpct}%</h1>
+          <button onSubmit={handleSubmit}>SHOW ANSWERS</button>
           <br></br>
         </div>
       </div>
@@ -143,6 +144,7 @@ export default function SummaryCalc() {
         <h2>{question2}</h2>
         <div>
           <h1>{q2.goodpct}% {q2.betterpct}% {q2.greatpct}%</h1>
+          <button onSubmit={handleSubmit}>SHOW ANSWERS</button>
           <br></br>
         </div>
       </div>
@@ -152,14 +154,10 @@ export default function SummaryCalc() {
         <h2>{question3}</h2>
         <div>
           <h1>{q3.goodpct}% {q3.betterpct}% {q3.greatpct}%</h1>
+          <button onSubmit={handleSubmit}>SHOW ANSWERS</button>
+          <br></br>
           <br></br>
         </div>
-      </div>
-
-      <div>
-        <button onSubmit={handleSubmit}>CONTINUE</button>
-        <br></br>
-        <br></br>
       </div>
 
       <div>
