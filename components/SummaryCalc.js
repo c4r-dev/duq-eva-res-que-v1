@@ -108,17 +108,17 @@ export default function SummaryCalc() {
   });
 
   let count = q1.goodcnt + q1.bettercnt + q1.greatcnt
-  q1.goodpct = q1.goodcnt / count
-  q1.betterpct = q1.bettercnt / count
-  q1.greatpct = q1.greatcnt / count
+  q1.goodpct = Math.round(q1.goodcnt / count * 100)
+  q1.betterpct = Math.round(q1.bettercnt / count * 100)
+  q1.greatpct = Math.round(q1.greatcnt / count * 100)
   count = q2.goodcnt + q2.bettercnt + q2.greatcnt
-  q2.goodpct = q2.goodcnt / count
-  q2.betterpct = q2.bettercnt / count
-  q2.greatpct = q2.greatcnt / count
+  q2.goodpct = Math.round(q2.goodcnt / count * 100)
+  q2.betterpct = Math.round(q2.bettercnt / count * 100)
+  q2.greatpct = Math.round(q2.greatcnt / count * 100)
   count = q3.goodcnt + q3.bettercnt + q3.greatcnt
-  q3.goodpct = q3.goodcnt / count
-  q3.betterpct = q3.bettercnt / count
-  q3.greatpct = q3.greatcnt / count
+  q3.goodpct = Math.round(q3.goodcnt / count * 100)
+  q3.betterpct = Math.round(q3.bettercnt / count * 100)
+  q3.greatpct = Math.round(q3.greatcnt / count * 100)
 
   return (
 
@@ -133,10 +133,7 @@ export default function SummaryCalc() {
         <h2>Research Question {number1}</h2>
         <h2>{question1}</h2>
         <div>
-          <br></br>
-          {q1.goodcnt}|{q1.bettercnt}|{q1.greatcnt}
-          <br></br>
-          {q1.goodpct}|{q1.betterpct}|{q1.greatpct}
+          <h1>{q1.goodpct}% |{q1.betterpct}% |{q1.greatpct}</h1>
           <br></br>
         </div>
       </div>
@@ -145,10 +142,7 @@ export default function SummaryCalc() {
         <h2>Research Question {number2}</h2>
         <h2>{question2}</h2>
         <div>
-          <br></br>
-          {q2.goodcnt}|{q2.bettercnt}|{q2.greatcnt}
-          <br></br>
-          {q2.goodpct}|{q2.betterpct}|{q2.greatpct}
+          <h1>{q2.goodpct}% |{q2.betterpct}% |{q2.greatpct}</h1>
           <br></br>
         </div>
       </div>
@@ -157,10 +151,7 @@ export default function SummaryCalc() {
         <h2>Research Question {number3}</h2>
         <h2>{question3}</h2>
         <div>
-          <br></br>
-          {q3.goodcnt}|{q3.bettercnt}|{q3.greatcnt}
-          <br></br>
-          {q3.goodpct}|{q3.betterpct}|{q3.greatpct}
+          <h1>{q3.goodpct}% |{q3.betterpct}% |{q3.greatpct}</h1>
           <br></br>
         </div>
       </div>
