@@ -133,7 +133,7 @@ export default function SummaryCalc() {
         <h2>Research Question {number1}</h2>
         <h2>{question1}</h2>
         <div>
-          <h1>{q1.goodpct}% |{q1.betterpct}% |{q1.greatpct}</h1>
+          <h1>{q1.goodpct}% {q1.betterpct}% {q1.greatpct}%</h1>
           <br></br>
         </div>
       </div>
@@ -142,7 +142,7 @@ export default function SummaryCalc() {
         <h2>Research Question {number2}</h2>
         <h2>{question2}</h2>
         <div>
-          <h1>{q2.goodpct}% |{q2.betterpct}% |{q2.greatpct}</h1>
+          <h1>{q2.goodpct}% {q2.betterpct}% {q2.greatpct}%</h1>
           <br></br>
         </div>
       </div>
@@ -151,7 +151,7 @@ export default function SummaryCalc() {
         <h2>Research Question {number3}</h2>
         <h2>{question3}</h2>
         <div>
-          <h1>{q3.goodpct}% |{q3.betterpct}% |{q3.greatpct}</h1>
+          <h1>{q3.goodpct}% {q3.betterpct}% {q3.greatpct}%</h1>
           <br></br>
         </div>
       </div>
