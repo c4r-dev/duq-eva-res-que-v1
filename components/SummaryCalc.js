@@ -73,11 +73,15 @@ export default function SummaryCalc() {
     greatcnt: 0,
     goodpct: 0,
     betterpct: 0,
-    greatpct: 0
+    greatpct: 0,
+    totalcnt: 0
   }
   let q1 = Object.create(Q)
   let q2 = Object.create(Q)
   let q3 = Object.create(Q)
+  let q1Answers = []
+  let q2Answers = []
+  let q3Answers = []
 
   outputs.forEach((item) => {
     if (item.number === "1") {
@@ -88,6 +92,10 @@ export default function SummaryCalc() {
       } else {
         q1.greatcnt++
       }
+      q1.totalcnt++
+      if (q1.totalcnt <= 10) {
+        q1Answers.push(item.questionAnswer)
+      }
     } else if (item.number === "2") {
       if (item.fbtool === "Good") {
         q2.goodcnt++
@@ -95,6 +103,10 @@ export default function SummaryCalc() {
         q2.bettercnt++
       } else {
         q2.greatcnt++
+      }
+      q2.totalcnt++
+      if (q2.totalcnt <= 10) {
+        q2Answers.push(item.questionAnswer)
       }
     } else {
       if (item.fbtool === "Good") {
@@ -104,21 +116,24 @@ export default function SummaryCalc() {
       } else {
         q3.greatcnt++
       }
+      q3.totalcnt++
+      if (q3.totalcnt <= 10) {
+        q3Answers.push(item.questionAnswer)
+      }
     }
   });
 
-  let count = q1.goodcnt + q1.bettercnt + q1.greatcnt
-  q1.goodpct = Math.round(q1.goodcnt / count * 100)
-  q1.betterpct = Math.round(q1.bettercnt / count * 100)
-  q1.greatpct = Math.round(q1.greatcnt / count * 100)
-  count = q2.goodcnt + q2.bettercnt + q2.greatcnt
-  q2.goodpct = Math.round(q2.goodcnt / count * 100)
-  q2.betterpct = Math.round(q2.bettercnt / count * 100)
-  q2.greatpct = Math.round(q2.greatcnt / count * 100)
-  count = q3.goodcnt + q3.bettercnt + q3.greatcnt
-  q3.goodpct = Math.round(q3.goodcnt / count * 100)
-  q3.betterpct = Math.round(q3.bettercnt / count * 100)
-  q3.greatpct = Math.round(q3.greatcnt / count * 100)
+  q1.goodpct = Math.round(q1.goodcnt / q1.totalcnt * 100)
+  q1.betterpct = Math.round(q1.bettercnt / q1.totalcnt * 100)
+  q1.greatpct = Math.round(q1.greatcnt / q1.totalcnt * 100)
+
+  q2.goodpct = Math.round(q2.goodcnt / q2.totalcnt * 100)
+  q2.betterpct = Math.round(q2.bettercnt / q2.totalcnt * 100)
+  q2.greatpct = Math.round(q2.greatcnt / q2.totalcnt * 100)
+
+  q3.goodpct = Math.round(q3.goodcnt / q3.totalcnt * 100)
+  q3.betterpct = Math.round(q3.bettercnt / q3.totalcnt * 100)
+  q3.greatpct = Math.round(q3.greatcnt / q3.totalcnt * 100)
 
   return (
 
