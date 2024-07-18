@@ -1,22 +1,25 @@
 'use client'
 
 import React, { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import Questions from "../questions/questions.json"
 
 import Image from 'next/image';
 
 import Raven1 from "@/assets/feedback-button-1.svg";
-import Raven2 from "@/assets/feedback-button-2.svg";
+import Raven2 from "@/assets/feedback-button-2.svg";  
 import Raven3 from "@/assets/feedback-button-3.svg";
 
 
-export default function ResQuesOne() {
+export default function ResQuesOne() {   
 
-  const searchParams = useSearchParams()
-  const selected = searchParams.get("selected")
-  let question = ''
+  const selected = sessionStorage.getItem('category')
+
+  // const searchParams = useSearchParams()
+  // const selected = searchParams.get("selected")
+
+  let question = ''  
   let number = ''
   let category = ''
 
@@ -55,7 +58,7 @@ export default function ResQuesOne() {
       });
 
       if (res.ok) {
-        router.push(`/resQuesTwo?selected=${selected}`);
+        router.push('/resQuesTwo');
       } else {
         throw new Error("Failed to create an answer.");
       }

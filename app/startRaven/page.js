@@ -1,7 +1,6 @@
 'use client'
 
-import { useRouter, useSearchParams } from "next/navigation";
-
+import { useRouter } from "next/navigation";
 
 import Image from 'next/image';
 
@@ -9,14 +8,18 @@ import Raven1 from "@/assets/feedback-button-1.svg";
 
 export default function ResQuesThree() {
 
-  const searchParams = useSearchParams()
-  const selected = searchParams.get("rqtool")
+  // let selected = sessionStorage.getItem("category")
+
+  // const searchParams = useSearchParams()
+  // const selected = searchParams.get("rqtool")
 
   const router = useRouter()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    router.push(`/resQuesOne?selected=${selected}`);
+    router.push('/resQuesOne');
+
+    // router.push(`/resQuesOne?selected=${selected}`);
   };
 
   return (

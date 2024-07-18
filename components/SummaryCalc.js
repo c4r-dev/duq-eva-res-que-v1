@@ -8,14 +8,12 @@ import Image from 'next/image';
 
 import Raven1 from "@/assets/feedback-button-1.svg";
 
-import { useRouter, useSearchParams } from "next/navigation";
-
 export default function SummaryCalc() {
 
-  const router = useRouter()
+  const selected = sessionStorage.getItem('category')
 
-  const searchParams = useSearchParams()
-  const selected = searchParams.get("selected")
+  // const searchParams = useSearchParams()
+  // const selected = searchParams.get("selected")
 
   const [outputs, setOutput] = useState(null)
   const [is1Visible, setIs1Visible] = useState(false);

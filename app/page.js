@@ -29,7 +29,10 @@ export default function FeedBack() {
       return;
     }
 
-    router.push(`/startRaven?rqtool=${rqtool}`);
+    sessionStorage.setItem("category", rqtool)
+    router.push('/startRaven');
+
+    // router.push(`/startRaven?rqtool=${rqtool}`);
 
   };
 
