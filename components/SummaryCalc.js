@@ -94,7 +94,7 @@ export default function SummaryCalc() {
       }
       q1.totalcnt++
       if (q1.totalcnt <= 10) {
-        let q1a = item.questionAnswer + ' ' + item.fbtool
+        let q1a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
         q1Answers.push(q1a)
       }
     } else if (item.number === "2") {
@@ -107,7 +107,7 @@ export default function SummaryCalc() {
       }
       q2.totalcnt++
       if (q2.totalcnt <= 10) {
-        let q2a = item.questionAnswer + ' ' + item.fbtool
+        let q2a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
         q2Answers.push(q2a)
       }
     } else {
@@ -120,7 +120,7 @@ export default function SummaryCalc() {
       }
       q3.totalcnt++
       if (q3.totalcnt <= 10) {
-        let q3a = item.questionAnswer + ' ' + item.fbtool
+        let q3a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
         q3Answers.push(q3a)
       }
     }
@@ -151,6 +151,7 @@ export default function SummaryCalc() {
         <h2>Research Question {number1}</h2>
         <h2>{question1}</h2>
         <div>
+          <h1>Good : Better : Great</h1>
           <h1>{q1.goodpct}% {q1.betterpct}% {q1.greatpct}%</h1>
           <button onSubmit={handleSubmit}>HIDE ANSWERS</button>
           <br></br>
@@ -166,6 +167,7 @@ export default function SummaryCalc() {
         <h2>Research Question {number2}</h2>
         <h2>{question2}</h2>
         <div>
+          <h1>Good : Better : Great</h1>
           <h1>{q2.goodpct}% {q2.betterpct}% {q2.greatpct}%</h1>
           <button onSubmit={handleSubmit}>HIDE ANSWERS</button>
           <br></br>
@@ -181,6 +183,7 @@ export default function SummaryCalc() {
         <h2>Research Question {number3}</h2>
         <h2>{question3}</h2>
         <div>
+          <h1>Good : Better : Great</h1>
           <h1>{q3.goodpct}% {q3.betterpct}% {q3.greatpct}%</h1>
           <button onSubmit={handleSubmit}>HIDE ANSWERS</button>
           <br></br>
