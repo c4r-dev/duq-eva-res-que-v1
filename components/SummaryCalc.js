@@ -12,7 +12,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SummaryCalc() {
 
-  const router = useRouter()
+  const router = useRouter() 
 
   const searchParams = useSearchParams()
   const selected = searchParams.get("selected")
