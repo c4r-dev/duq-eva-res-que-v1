@@ -150,3 +150,5 @@ export default function ResQuesOne() {
     </form>
   );
 }
+
+export const dynamic = 'force-dynamic';

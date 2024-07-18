@@ -150,3 +150,5 @@ export default function ResQuesTwo() {
     </form>
   );
 }
+
+export const dynamic = 'force-dynamic';

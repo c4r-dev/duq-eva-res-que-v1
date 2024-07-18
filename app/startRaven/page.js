@@ -46,3 +46,5 @@ export default function ResQuesThree() {
     </form>
   )
 }
+
+export const dynamic = 'force-dynamic';
