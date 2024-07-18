@@ -97,7 +97,7 @@ export default function SummaryCalc() {
         }
         q1.totalcnt++
         if (q1.totalcnt <= 10) {
-          q1a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
+          q1a = item.questionAnswer
           q1Answers.push(q1a)
         }
       } else if (item.number === "2") {
@@ -110,7 +110,7 @@ export default function SummaryCalc() {
         }
         q2.totalcnt++
         if (q2.totalcnt <= 10) {
-          q2a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
+          q2a = item.questionAnswer
           q2Answers.push(q2a)
         }
       } else {
@@ -123,7 +123,7 @@ export default function SummaryCalc() {
         }
         q3.totalcnt++
         if (q3.totalcnt <= 10) {
-          q3a = item.questionAnswer + ' ' + item.fbtool + ' ' + item.category + ' ' + item.number
+          q3a = item.questionAnswer
           q3Answers.push(q3a)
         }
       }
