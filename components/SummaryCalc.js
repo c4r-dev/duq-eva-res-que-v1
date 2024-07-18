@@ -151,6 +151,11 @@ export default function SummaryCalc() {
           <h1>{q1.goodpct}% {q1.betterpct}% {q1.greatpct}%</h1>
           <button onSubmit={handleSubmit}>SHOW ANSWERS</button>
           <br></br>
+          <ul>
+            {q1Answers.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
         </div>
       </div>
 
@@ -161,6 +166,11 @@ export default function SummaryCalc() {
           <h1>{q2.goodpct}% {q2.betterpct}% {q2.greatpct}%</h1>
           <button onSubmit={handleSubmit}>SHOW ANSWERS</button>
           <br></br>
+          <ul>
+            {q2Answers.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
         </div>
       </div>
 
@@ -171,7 +181,11 @@ export default function SummaryCalc() {
           <h1>{q3.goodpct}% {q3.betterpct}% {q3.greatpct}%</h1>
           <button onSubmit={handleSubmit}>SHOW ANSWERS</button>
           <br></br>
-          <br></br>
+          <ul>
+            {q3Answers.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
         </div>
       </div>
 
