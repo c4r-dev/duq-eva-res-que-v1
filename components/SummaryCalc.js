@@ -94,7 +94,8 @@ export default function SummaryCalc() {
       }
       q1.totalcnt++
       if (q1.totalcnt <= 10) {
-        q1Answers.push(item.questionAnswer)
+        let q1a = item.questionAnswer + ' ' + item.fbtool
+        q1Answers.push(q1a)
       }
     } else if (item.number === "2") {
       if (item.fbtool === "Good") {
@@ -106,7 +107,8 @@ export default function SummaryCalc() {
       }
       q2.totalcnt++
       if (q2.totalcnt <= 10) {
-        q2Answers.push(item.questionAnswer)
+        let q2a = item.questionAnswer + ' ' + item.fbtool
+        q2Answers.push(q2a)
       }
     } else {
       if (item.fbtool === "Good") {
@@ -118,7 +120,8 @@ export default function SummaryCalc() {
       }
       q3.totalcnt++
       if (q3.totalcnt <= 10) {
-        q3Answers.push(item.questionAnswer)
+        let q3a = item.questionAnswer + ' ' + item.fbtool
+        q3Answers.push(q3a)
       }
     }
   });
@@ -149,7 +152,7 @@ export default function SummaryCalc() {
         <h2>{question1}</h2>
         <div>
           <h1>{q1.goodpct}% {q1.betterpct}% {q1.greatpct}%</h1>
-          <button onSubmit={handleSubmit}>SHOW ANSWERS</button>
+          <button onSubmit={handleSubmit}>HIDE ANSWERS</button>
           <br></br>
           <ul>
             {q1Answers.map((item) => (
@@ -164,7 +167,7 @@ export default function SummaryCalc() {
         <h2>{question2}</h2>
         <div>
           <h1>{q2.goodpct}% {q2.betterpct}% {q2.greatpct}%</h1>
-          <button onSubmit={handleSubmit}>SHOW ANSWERS</button>
+          <button onSubmit={handleSubmit}>HIDE ANSWERS</button>
           <br></br>
           <ul>
             {q2Answers.map((item) => (
@@ -179,7 +182,7 @@ export default function SummaryCalc() {
         <h2>{question3}</h2>
         <div>
           <h1>{q3.goodpct}% {q3.betterpct}% {q3.greatpct}%</h1>
-          <button onSubmit={handleSubmit}>SHOW ANSWERS</button>
+          <button onSubmit={handleSubmit}>HIDE ANSWERS</button>
           <br></br>
           <ul>
             {q3Answers.map((item) => (
