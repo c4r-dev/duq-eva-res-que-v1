@@ -153,6 +153,8 @@ export default function SummaryCalc() {
     setIs3Visible(!is3Visible)
   };
 
+  const generateKey = (item) => '{item}'
+
   return (
 
     <>
@@ -176,7 +178,7 @@ export default function SummaryCalc() {
               <br></br>
               <ul>
                 {q1Answers.map((item) => (
-                  <li>{item}</li>
+                  <li key={(generateKey(item))}>{item}</li>
                 ))}
               </ul>
             </div>
