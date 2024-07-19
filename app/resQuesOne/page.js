@@ -1,24 +1,26 @@
 'use client'
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Questions from "../questions/questions.json"
 
 import Image from 'next/image';
 
-import Raven1 from "@/assets/feedback-button-1.svg";
-import Raven2 from "@/assets/feedback-button-2.svg";
-import Raven3 from "@/assets/feedback-button-3.svg";
+import Raven1 from "../assets/feedback-button-1.svg";
+import Raven2 from "../assets/feedback-button-2.svg";
+import Raven3 from "../assets/feedback-button-3.svg";
 
 
 export default function ResQuesOne() {
 
-  const searchParams = useSearchParams()
-  const selected = searchParams.get("selected")
+  let selected = 'cs'
+  function GetParms() {
+    const searchParams = useSearchParams()
+    selected = searchParams.get("selected")
+  }
 
   const router = useRouter()
-  // const {selected} = router.query
 
   let question = ''
   let number = ''
@@ -67,6 +69,11 @@ export default function ResQuesOne() {
   };
 
   return (
+
+    <>
+      <Suspense fallback={<p>Loading...</p>}>
+        <GetParms />
+      </Suspense>
 
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <div>
@@ -150,6 +157,7 @@ export default function ResQuesOne() {
         </button>
       </div>
     </form>
+    </>
   );
 }
 
