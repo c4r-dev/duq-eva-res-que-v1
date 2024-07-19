@@ -9,8 +9,6 @@ import Raven1 from "@/assets/feedback-button-1.svg";
 import Raven2 from "@/assets/feedback-button-1.svg";
 import Raven3 from "@/assets/feedback-button-1.svg";
 
-
-
 export default function FeedBack() {
 
   const router = useRouter()
@@ -29,10 +27,7 @@ export default function FeedBack() {
       return;
     }
 
-    sessionStorage.setItem("category", rqtool)
-    router.push('/startRaven');
-
-    // router.push(`/startRaven?rqtool=${rqtool}`);
+    router.push(`/startRaven?rqtool=${rqtool}`);
 
   };
 

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import Questions from "../questions/questions.json"
 
@@ -14,10 +14,8 @@ import Raven3 from "@/assets/feedback-button-3.svg";
 
 export default function ResQuesTwo() {
 
-  const selected = sessionStorage.getItem('category')
-
-  // const searchParams = useSearchParams()
-  // const selected = searchParams.get("selected")
+  const searchParams = useSearchParams()
+  const selected = searchParams.get("selected")
 
   let question = ''
   let number = ''
@@ -58,7 +56,7 @@ export default function ResQuesTwo() {
       });
 
       if (res.ok) {
-        router.push('/summary');
+        router.push(`/summary?selected=${selected}`);
       } else {
         throw new Error("Failed to create an answer.");
       }
