@@ -1,5 +1,5 @@
-import connectMongoDB from "@/libs/mongodb";
-import ErqresearchQAns from "@/models/erqresearchQAns";
+import connectMongoDB from '../libs/mongodb';
+import ErqresearchQAns from "../models/erqresearchQAns";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {

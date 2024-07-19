@@ -7,10 +7,9 @@ import Questions from "../questions/questions.json"
 
 import Image from 'next/image';
 
-import Raven1 from "@/assets/feedback-button-1.svg";
-import Raven2 from "@/assets/feedback-button-2.svg";
-import Raven3 from "@/assets/feedback-button-3.svg";
-
+import Raven1 from "../assets/feedback-button-1.svg";
+import Raven2 from "../assets/feedback-button-2.svg";
+import Raven3 from "../assets/feedback-button-3.svg";
 
 export default function ResQuesTwo() {
 

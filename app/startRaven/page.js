@@ -4,12 +4,12 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import Image from 'next/image';
 
-import Raven1 from '@/assets';
+import Raven1 from '../assets/feedback-button-1.svg';
 
 export default function ResQuesThree() {
 
   const searchParams = useSearchParams()
-  selected = searchParams.get("rqtool")
+  const selected = searchParams.get("rqtool")
 
   const router = useRouter()
 
