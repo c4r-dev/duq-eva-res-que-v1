@@ -12,6 +12,7 @@ export default function ResQuesThree() {
   const selected = searchParams.get("rqtool")
 
   const router = useRouter()
+  // const { selected } = router.query
 
   const handleSubmit = async (e) => {
     e.preventDefault();

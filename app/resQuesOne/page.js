@@ -17,6 +17,9 @@ export default function ResQuesOne() {
   const searchParams = useSearchParams()
   const selected = searchParams.get("selected")
 
+  const router = useRouter()
+  // const {selected} = router.query
+
   let question = ''
   let number = ''
   let category = ''
@@ -28,8 +31,6 @@ export default function ResQuesOne() {
       question = elem.question
     }
   })
-
-  const router = useRouter()
 
   const [questionAnswer, setQuestionAnswer] = useState("");
   const [fbtool, setFBTool] = useState('')

@@ -24,10 +24,11 @@ export default function FeedBack() {
 
     if (!rqtool)  {
       alert("Selection is required to Continue.");
-      return;
+      return;  
     }
-
-    router.push(`/startRaven?rqtool=${rqtool}`);
+    
+    let selected = rqtool
+    router.push(`/startRaven?rqtool=${selected}`);
 
   };
 
