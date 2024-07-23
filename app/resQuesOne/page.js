@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Questions from "../questions/questions.json"
@@ -13,8 +13,12 @@ import Raven3 from "../assets/feedback-button-3.svg";
 
 export default function ResQuesOne() {
 
-  const searchParams = useSearchParams()
-  const selected = searchParams.get("selected")
+  let selected = ''
+  function Search() {
+    const searchParams = useSearchParams()
+    selected = searchParams.get("selected")
+    return <input placeholder="Search..." />
+  }
 
   const router = useRouter()
 
@@ -67,6 +71,10 @@ export default function ResQuesOne() {
   return (
 
     <>
+     <Suspense>
+        <Search/>
+      </Suspense>
+
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <div>
           <h1>Formulating a Valid Research Question</h1>

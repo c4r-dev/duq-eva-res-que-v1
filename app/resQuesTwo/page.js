@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Questions from "../questions/questions.json"
@@ -13,17 +13,21 @@ import Raven3 from "../assets/feedback-button-3.svg";
 
 export default function ResQuesTwo() {
 
-  const searchParams = useSearchParams()
-  const selected = searchParams.get("selected")
+  let selected = ''
+  function Search() {
+    const searchParams = useSearchParams()
+    selected = searchParams.get("selected")
+    return <input placeholder="Search..." />
+  }
 
   let question = ''
   let number = ''
   let category = ''
 
-  Questions.forEach(function(elem){
+  Questions.forEach(function (elem) {
     if (elem.category === selected && elem.number === "2") {
-      category=elem.category
-      number=elem.number
+      category = elem.category
+      number = elem.number
       question = elem.question
     }
   })
@@ -66,88 +70,94 @@ export default function ResQuesTwo() {
 
   return (
 
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-      <div>
-        <h1>Formulating a Valid Research Question</h1>
-        <h2>Question {number}</h2>
-      </div>
+    <>
+      <Suspense>
+        <Search />
+      </Suspense>
 
-      <p>
-        {question}
-      </p>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <div>
+          <h1>Formulating a Valid Research Question</h1>
+          <h2>Question {number}</h2>
+        </div>
 
-      <div><br></br></div>
-      <div><h2>How good is this research question?</h2></div>
-      <div><br></br></div>
+        <p>
+          {question}
+        </p>
 
-      <div className="flex-container">
+        <div><br></br></div>
+        <div><h2>How good is this research question?</h2></div>
+        <div><br></br></div>
 
-        <input
-          type="radio"
-          name="fbtoolanswer"
-          id="fbtoolns"
-          value={"Good"}
-          checked={fbtool === 'Good'}
-          onChange={onValueChange}
-        />
-        <label htmlFor="fbtoolns">
-          <Image
-            priority
-            src={Raven1}
-            alt="Follow us at c4r.io"
+        <div className="flex-container">
+
+          <input
+            type="radio"
+            name="fbtoolanswer"
+            id="fbtoolns"
+            value={"Good"}
+            checked={fbtool === 'Good'}
+            onChange={onValueChange}
           />
-          Good
-        </label>
+          <label htmlFor="fbtoolns">
+            <Image
+              priority
+              src={Raven1}
+              alt="Follow us at c4r.io"
+            />
+            Good
+          </label>
 
-        <input
-          type="radio"
-          name="fbtoolanswer"
-          id="fbtoolgd"
-          value={"Better"}
-          checked={fbtool === 'Better'}
-          onChange={onValueChange}
-        />
-        <label htmlFor="fbtoolgd">
-          <Image
-            priority
-            src={Raven2}
-            alt="Follow us at c4r.io"
+          <input
+            type="radio"
+            name="fbtoolanswer"
+            id="fbtoolgd"
+            value={"Better"}
+            checked={fbtool === 'Better'}
+            onChange={onValueChange}
           />
-          Better
-        </label>
+          <label htmlFor="fbtoolgd">
+            <Image
+              priority
+              src={Raven2}
+              alt="Follow us at c4r.io"
+            />
+            Better
+          </label>
 
-        <input
-          type="radio"
-          name="fbtoolanswer"
-          id="fbtoolgr"
-          value={"Great"}
-          checked={fbtool === 'Great'}
-          onChange={onValueChange}
-        />
-        <label htmlFor="fbtoolgr">
-          <Image
-            priority
-            src={Raven3}
-            alt="Follow us at c4r.io"
+          <input
+            type="radio"
+            name="fbtoolanswer"
+            id="fbtoolgr"
+            value={"Great"}
+            checked={fbtool === 'Great'}
+            onChange={onValueChange}
           />
-          Great
-        </label>
+          <label htmlFor="fbtoolgr">
+            <Image
+              priority
+              src={Raven3}
+              alt="Follow us at c4r.io"
+            />
+            Great
+          </label>
 
-      </div>
+        </div>
 
-      <div className="flex-container2">
-        <input
-          onChange={(e) => setQuestionAnswer(e.target.value)}
-          value={questionAnswer}
-          className="border border-slate-500 px-8 py-2"
-          type="text"
-          placeholder="Your answer."
-        />
-        <button type="submit">
-          SUBMIT RESPONSE and GO TO QUESTION 3
-        </button>
-      </div>
-    </form>
+        <div className="flex-container2">
+          <input
+            onChange={(e) => setQuestionAnswer(e.target.value)}
+            value={questionAnswer}
+            className="border border-slate-500 px-8 py-2"
+            type="text"
+            placeholder="Your answer."
+          />
+          <button type="submit">
+            SUBMIT RESPONSE and GO TO QUESTION 3
+          </button>
+        </div>
+      </form>
+    </>
   );
 }
 

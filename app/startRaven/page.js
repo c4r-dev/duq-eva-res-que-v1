@@ -1,11 +1,11 @@
 'use client'
 
+import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Image from 'next/image';
 
 import Raven1 from '../assets/feedback-button-1.svg';
-import { Suspense } from "react";
 
 export default function ResQuesThree() {
 
