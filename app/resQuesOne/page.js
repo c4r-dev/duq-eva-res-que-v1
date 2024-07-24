@@ -13,29 +13,27 @@ import Raven3 from "../assets/feedback-button-3.svg";
 
 export default function ResQuesOne() {
 
-  let selected = ''
+  const [questionAnswer, setQuestionAnswer] = useState("");
+  const [fbtool, setFBTool] = useState('')
+  const [selected, setSelected] = useState('')
+  const [question, setQuestion] = useState('')
+  const [number, setNumber] = useState('')
+  const [category, setCategory] = useState('')
+
   function Search() {
     const searchParams = useSearchParams()
-    selected = searchParams.get("selected")
-    return <input placeholder="Search..." />
+    setSelected(searchParams.get("selected"))
+    Questions.forEach(function (elem) {
+      if (elem.category === selected && elem.number === "1") {
+        setCategory(elem.category)
+        setNumber(elem.number)
+        setQuestion(elem.question)
+      }
+    })
+    return
   }
 
   const router = useRouter()
-
-  let question = ''
-  let number = ''
-  let category = ''
-
-  Questions.forEach(function (elem) {
-    if (elem.category === selected && elem.number === "1") {
-      category = elem.category
-      number = elem.number
-      question = elem.question
-    }
-  })
-
-  const [questionAnswer, setQuestionAnswer] = useState("");
-  const [fbtool, setFBTool] = useState('')
 
   const onValueChange = (event) => {
     setFBTool(event.target.value)
@@ -71,8 +69,8 @@ export default function ResQuesOne() {
   return (
 
     <>
-     <Suspense>
-        <Search/>
+      <Suspense>
+        <Search />
       </Suspense>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
