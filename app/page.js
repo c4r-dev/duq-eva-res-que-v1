@@ -41,21 +41,19 @@ export default function FeedBack() {
 
       <div className="flex-container">
 
-        <input
+      <input
           type="radio"
           name="rqtoolanswer"
           id="rqtoolbs"
           value={"bs"}
           checked={rqtool === 'bs'}
           onChange={onValueChange}
+          className="topic-radio-input"
         />
         <label htmlFor="rqtoolbs">
-          <Image
-            priority
-            src={Raven1}
-            alt="Follow us at c4r.io"
-          />
-          Basic Science
+          <div className={`topic-square basic-science-square ${rqtool === 'bs' ? 'selected-style' : ''}`}>
+            Basic Science
+          </div>
         </label>
 
         <input
@@ -65,14 +63,12 @@ export default function FeedBack() {
           value={"cs"}
           checked={rqtool === 'cs'}
           onChange={onValueChange}
+          className="topic-radio-input"
         />
         <label htmlFor="rqtoolcs">
-          <Image
-            priority
-            src={Raven2}
-            alt="Follow us at c4r.io"
-          />
-          Clinical Science
+          <div className={`topic-square clinical-science-square ${rqtool === 'cs' ? 'selected-style' : ''}`}>
+            Clinical Science
+          </div>
         </label>
 
         <input
@@ -82,14 +78,12 @@ export default function FeedBack() {
           value={"ph"}
           checked={rqtool === 'ph'}
           onChange={onValueChange}
+          className="topic-radio-input"
         />
         <label htmlFor="rqtoolph">
-          <Image
-            priority
-            src={Raven3}
-            alt="Follow us at c4r.io"
-          />
-          Public Health
+          <div className={`topic-square public-health-square ${rqtool === 'ph' ? 'selected-style' : ''}`}>
+            Public Health
+          </div>
         </label>
 
       </div>
