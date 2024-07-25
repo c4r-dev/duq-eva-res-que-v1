@@ -35,7 +35,7 @@ export default function FeedBack() {
   return (
 
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-      <div>
+      <div className="activity-header">
         <h1>Formulating a Valid Research Question</h1>
       </div>
 

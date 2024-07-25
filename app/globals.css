@@ -1,3 +1,38 @@
+
+/* Importing fonts  */
+@font-face {
+  font-family: 'GeneralSans-Semibold';
+  src: url('assets/GeneralSans-Semibold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'GeneralSans-Semibold';
+  src: url('assets/GeneralSans-Regular.ttf') format('truetype');
+}
+* {
+  font-family: 'GeneralSans-Semibold', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: 'GeneralSans-Regular', sans-serif;
+}
+h1 {
+  font-family: 'GeneralSans-Regular', sans-serif;
+  color: #000000;
+  /* font-weight: 800; */
+}
+h2 {
+  font-family: 'GeneralSans-Regular', sans-serif;
+}
+
+p {
+font-family: 'GeneralSans-Regular', sans-serif;
+
+}
+
+.activity-header {
+  color: #000000;
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;
