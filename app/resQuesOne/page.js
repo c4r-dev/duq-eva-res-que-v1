@@ -11,6 +11,8 @@ import Raven1 from "../assets/feedback-button-1.svg";
 import Raven2 from "../assets/feedback-button-2.svg";
 import Raven3 from "../assets/feedback-button-3.svg";
 
+import FeedbackForm from "../components/FeedbackForm";
+
 export default function ResQuesOne() {
 
   const [questionAnswer, setQuestionAnswer] = useState("");
@@ -20,7 +22,20 @@ export default function ResQuesOne() {
   const [number, setNumber] = useState('')
   const [category, setCategory] = useState('')
 
-  function Search() {
+  // function Search() {
+  //   const searchParams = useSearchParams()
+  //   setSelected(searchParams.get("selected"))
+  //   Questions.forEach(function (elem) {
+  //     if (elem.category === selected && elem.number === "1") {
+  //       setCategory(elem.category)
+  //       setNumber(elem.number)
+  //       setQuestion(elem.question)
+  //     }
+  //   })
+  //   return
+  // }
+
+  const Seach = () => {
     const searchParams = useSearchParams()
     setSelected(searchParams.get("selected"))
     Questions.forEach(function (elem) {
@@ -30,7 +45,10 @@ export default function ResQuesOne() {
         setQuestion(elem.question)
       }
     })
-    return
+    return (
+      <div>
+      </div>
+    )
   }
 
   const router = useRouter()
@@ -66,8 +84,8 @@ export default function ResQuesOne() {
     }
   };
 
+/*
   return (
-
     <>
       <Suspense>
         <Search />
@@ -157,6 +175,18 @@ export default function ResQuesOne() {
       </form>
     </>
   );
+  */
+
+  return (
+    <div>
+      {/* <div className="suspense-container"> */}
+        {/* <Suspense> */}
+          {/* <Search /> */}
+        {/* </Suspense> */}
+      {/* </div> */}
+      <FeedbackForm category={category}/>
+    </div>
+  )
 }
 
 export const dynamic = 'force-dynamic';

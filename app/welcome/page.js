@@ -12,7 +12,7 @@ import IconGroup2 from '../assets/icon-group-2.svg';
 
 
 // export default function ResQuesThree() {
-export default function StartRaven() {
+export default function Welcome() {
 
 
   let selected = 'bs'
@@ -40,7 +40,7 @@ export default function StartRaven() {
 
     <>
       <header>
-        <h1>Formulating a Valid Research Question</h1>
+        <h1>WELCOME!!! a Valid Research Question</h1>
       </header>
 
     {/* Old form-style continue button - keep for testing */}

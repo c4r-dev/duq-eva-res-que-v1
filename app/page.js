@@ -1,97 +1,80 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import Image from "next/image";
 
-import Image from 'next/image';
+import Raven1 from './assets/raven-1-angled.svg';
+import IconGroup1 from "./assets/icon-group-1.svg";
+// import Raven3 from "./assets/feedback-button-3.svg";
 
-import Raven1 from "./assets/feedback-button-1.svg";
-import Raven2 from "./assets/feedback-button-2.svg";
-import Raven3 from "./assets/feedback-button-3.svg";
+
 
 export default function FeedBack() {
+    const router = useRouter();
 
-  const router = useRouter()
+    const [rqtool, setRQTool] = useState("");
 
-  const [rqtool, setRQTool] = useState('')
+    const onValueChange = (event) => {
+        setRQTool(event.target.value);
+    };
 
-  const onValueChange = (event) => {
-    setRQTool(event.target.value)
-  }
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     if (!rqtool) {
+    //         alert("Selection is required to Continue.");
+    //         return;
+    //     }
+    //     // router.push(`/startRaven?rqtool=${rqtool}`);
+    //     router.push(`/topicSelection?rqtool=${rqtool}`);
+    // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!rqtool)  {
-      alert("Selection is required to Continue.");
-      return;  
+    const startActivity = () => {
+        router.push(`/topicSelection`);
     }
-    
-    router.push(`/startRaven?rqtool=${rqtool}`);
 
-  };
+    return (
+      <div className="start-activity-container">
 
-  return (
+<div className="background-image-container">
+                <Image
+                    priority
+                    src={IconGroup1}
+                alt="Follow us at c4r.io"
+                className="background-image"
+                />
+            </div>
 
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-      <div className="activity-header">
-        <h1>Formulating a Valid Research Question</h1>
-      </div>
 
-      <div className="flex-container">
+            <div className="activity-header">
+                <h1>Formulating a Valid Research Question</h1>
+                <h1>Evaluate</h1>
+            </div>
 
-      <input
-          type="radio"
-          name="rqtoolanswer"
-          id="rqtoolbs"
-          value={"bs"}
-          checked={rqtool === 'bs'}
-          onChange={onValueChange}
-          className="topic-radio-input"
-        />
-        <label htmlFor="rqtoolbs">
-          <div className={`topic-square basic-science-square ${rqtool === 'bs' ? 'selected-style' : ''}`}>
-            Basic Science
-          </div>
-        </label>
+            <div className="activity-start-button-footer">
+                <button onClick={startActivity}>Start Activity</button>
+            </div>
 
-        <input
-          type="radio"
-          name="rqtoolanswer"
-          id="rqtoolcs"
-          value={"cs"}
-          checked={rqtool === 'cs'}
-          onChange={onValueChange}
-          className="topic-radio-input"
-        />
-        <label htmlFor="rqtoolcs">
-          <div className={`topic-square clinical-science-square ${rqtool === 'cs' ? 'selected-style' : ''}`}>
-            Clinical Science
-          </div>
-        </label>
+              {/* Fixed footer Raven */}
+            <div>
+                <Image
+                    priority
+                    src={Raven1}
+                alt="Follow us at c4r.io"
+                className="raven-footer-0"
+                />
+            </div>
+            {/* <div className="background-image-container">
+                <Image
+                    priority
+                    src={IconGroup1}
+                alt="Follow us at c4r.io"
+                className="background-image"
+                />
+            </div> */}
+        </div>
 
-        <input
-          type="radio"
-          name="rqtoolanswer"
-          id="rqtoolph"
-          value={"ph"}
-          checked={rqtool === 'ph'}
-          onChange={onValueChange}
-          className="topic-radio-input"
-        />
-        <label htmlFor="rqtoolph">
-          <div className={`topic-square public-health-square ${rqtool === 'ph' ? 'selected-style' : ''}`}>
-            Public Health
-          </div>
-        </label>
 
-      </div>
-      <div>
-        <button type="submit">
-          CONTINUE
-        </button>
-      </div>
-    </form>
-  )
+    );
 }
