@@ -32,10 +32,13 @@ export default function TopicSelection() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <div className="topic-selection-container">
             <div className="activity-header">
                 <h1>Formulating a Valid Research Question</h1>
             </div>
+
+            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+
 
             <div className="flex-container">
                 <input
@@ -96,9 +99,11 @@ export default function TopicSelection() {
                 </label>
             </div>
 
-            <div>
+            <div className="select-topic-button">
                 <button type="submit">CONTINUE</button>
             </div>
         </form>
+        </div>
+        
     );
 }

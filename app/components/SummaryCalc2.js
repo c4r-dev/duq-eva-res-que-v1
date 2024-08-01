@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 
 import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import Questions from "../questions/questions.json";
 
@@ -18,6 +19,7 @@ import ravenChatIcon3 from "../assets/raven-chat-icon-3.svg";
 import ravenChatIcon4 from "../assets/raven-chat-icon-4.svg";
 
 export default function SummaryCalc() {
+    const router = useRouter();
     const searchParams = useSearchParams();
     const selected = searchParams.get("selected");
 
@@ -181,6 +183,10 @@ export default function SummaryCalc() {
         setIs3Visible(!is3Visible);
     };
 
+    const openFinalScreen = () => {
+      router.push(`/congratulations`);
+    };
+
     const SummryInstance = ({
         title,
         question,
@@ -210,7 +216,7 @@ export default function SummaryCalc() {
             return colorMap[feedback];
         };
 
-        const [showAnswers, setShowAnswers] = useState(true);
+        const [showAnswers, setShowAnswers] = useState(false);
 
         const toggleAnswersVisibility = () => {
             // Calculate pixle height of answers
@@ -365,80 +371,14 @@ export default function SummaryCalc() {
                     />
 
                     <div className="summary-area-footer">
-                        <button className="summary-continue-button">
+                        <button className="summary-continue-button" onClick={openFinalScreen}>
                             CONTINUE
                         </button>
                     </div>
                 </div>
             </div>
 
-            {/* <div>
-        <h2>Research Question {number1}</h2>
-        <h2>{question1}</h2>
-        <div>
-          <h1>Good : Better : Great</h1>
-          <h1>{q1.goodpct}% {q1.betterpct}% {q1.greatpct}%</h1>
-          <button onClick={toggle1Visibility}>
-            {is1Visible ? 'HIDE ' : 'SHOW '} ANSWERS
-          </button>
-          {is1Visible && (
-            <div>
-              <br></br>
-              {q1Answers.map((item, index) => (
-               <li key={index}>{item}</li>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
 
-      <div>
-        <h2>Research Question {number2}</h2>
-        <h2>{question2}</h2>
-        <div>
-          <h1>Good : Better : Great</h1>
-          <h1>{q2.goodpct}% {q2.betterpct}% {q2.greatpct}%</h1>
-          <button onClick={toggle2Visibility}>
-            {is2Visible ? 'HIDE ' : 'SHOW '} ANSWERS
-          </button>
-          {is2Visible && (
-            <div>
-              <br></br>
-              <ul>
-                {q2Answers.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div>
-        <h2>Research Question {number3}</h2>
-        <h2>{question3}</h2>
-        <div>
-          <h1>Good : Better : Great</h1>
-          <h1>{q3.goodpct}% {q3.betterpct}% {q3.greatpct}%</h1>
-          <button onClick={toggle3Visibility}>
-            {is3Visible ? 'HIDE ' : 'SHOW '} ANSWERS
-          </button>
-          {is3Visible && (
-            <div>
-              <br></br>
-              <ul>
-                {q3Answers.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      </div> */}
-
-            <div>
-                <br></br>
-            </div>
 
             <div>
                 <Image

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 import Raven1 from './assets/raven-1-angled.svg';
-// import Raven2 from "./assets/feedback-button-2.svg";
+import IconGroup1 from "./assets/icon-group-1.svg";
 // import Raven3 from "./assets/feedback-button-3.svg";
 
 
@@ -35,7 +35,17 @@ export default function FeedBack() {
     }
 
     return (
-      <div>
+      <div className="start-activity-container">
+
+<div className="background-image-container">
+                <Image
+                    priority
+                    src={IconGroup1}
+                alt="Follow us at c4r.io"
+                className="background-image"
+                />
+            </div>
+
 
             <div className="activity-header">
                 <h1>Formulating a Valid Research Question</h1>
@@ -52,9 +62,17 @@ export default function FeedBack() {
                     priority
                     src={Raven1}
                 alt="Follow us at c4r.io"
-                className="raven-footer-1"
+                className="raven-footer-0"
                 />
             </div>
+            {/* <div className="background-image-container">
+                <Image
+                    priority
+                    src={IconGroup1}
+                alt="Follow us at c4r.io"
+                className="background-image"
+                />
+            </div> */}
         </div>
 
 
