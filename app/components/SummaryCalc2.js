@@ -158,6 +158,8 @@ export default function SummaryCalc() {
     q3.greatpct = Math.round((q3.greatcnt / q3.totalcnt) * 100);
 
     function getWinner(goodPct, betterPct, greatPct) {
+        return "q1";
+
         if (goodPct > betterPct && goodPct > greatPct) {
             return "q1";
         } else if (betterPct > goodPct && betterPct > greatPct) {
@@ -280,6 +282,36 @@ export default function SummaryCalc() {
                         showAnswers ? "" : "collapsed"
                     }`}
                 >
+                                          <div
+                           
+                            className={`summary-instance-answer-bubble right`}
+                        >
+                            <div
+                                className={`answer-bubble right`}
+                            >
+                                <div
+                                    className={`answer-bubble-body right your-color`}
+
+                                >
+                                    <h1>test123</h1>
+                                    {/* <h1>{item.feedback}</h1> */}
+                                </div>
+                                <div
+                                    className={`answer-bubble-triangle right your-color`}
+                                ></div>
+                                <div
+                                    className={`answer-bubble-icon right`}
+                                >
+
+                                        <Image
+                                            src={ravenChatIcon1}
+                                            alt="Raven Chat Icon 1"
+                                        />
+
+
+                                </div>
+                            </div>
+                        </div>
                     <p>Other answers</p>
                     {/*  Render alternating speech bubbles */}
                     {answers.map((item, index) => (

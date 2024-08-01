@@ -22,7 +22,20 @@ export default function ResQuesOne() {
   const [number, setNumber] = useState('')
   const [category, setCategory] = useState('')
 
-  function Search() {
+  // function Search() {
+  //   const searchParams = useSearchParams()
+  //   setSelected(searchParams.get("selected"))
+  //   Questions.forEach(function (elem) {
+  //     if (elem.category === selected && elem.number === "1") {
+  //       setCategory(elem.category)
+  //       setNumber(elem.number)
+  //       setQuestion(elem.question)
+  //     }
+  //   })
+  //   return
+  // }
+
+  const Seach = () => {
     const searchParams = useSearchParams()
     setSelected(searchParams.get("selected"))
     Questions.forEach(function (elem) {
@@ -32,7 +45,10 @@ export default function ResQuesOne() {
         setQuestion(elem.question)
       }
     })
-    return
+    return (
+      <div>
+      </div>
+    )
   }
 
   const router = useRouter()
@@ -163,6 +179,11 @@ export default function ResQuesOne() {
 
   return (
     <div>
+      {/* <div className="suspense-container"> */}
+        {/* <Suspense> */}
+          {/* <Search /> */}
+        {/* </Suspense> */}
+      {/* </div> */}
       <FeedbackForm category={category}/>
     </div>
   )

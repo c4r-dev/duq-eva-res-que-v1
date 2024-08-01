@@ -14,6 +14,12 @@ import FeedbackImage2 from "../assets/feedback-button-2.svg";
 import FeedbackImage3 from "../assets/feedback-button-3.svg";
 
 
+// import Raven1 from '../assets/feedback-button-1.svg';
+import Raven1 from '../assets/raven-1-angled.svg';
+import IconGroup2 from '../assets/icon-group-3.svg';
+
+
+
 const questions = [
     "Evaluate the prevalence of medically resistant focal epilepsy in children at King Fahd University Hospital between January 2017 and December 2018.",
     "Evaluate the effectiveness of the new teaching method implemented in the school between 2020 and 2021.",
@@ -217,6 +223,22 @@ const FeedbackForm = ({category}) => {
                 />
                 <button onClick={handleSubmit} className="submit-feedback-button">Submit Response</button>
             </div>
+
+
+            <div>
+        <Image
+          priority
+          src={Raven1}
+          alt="Follow us at c4r.io"
+          className="raven-footer-1"
+        />
+      </div>
+      <Image
+          priority
+          src={IconGroup2}
+          alt="Follow us at c4r.io"
+          className="microscope-footer-2"
+        />
         </div>
     );
 };
