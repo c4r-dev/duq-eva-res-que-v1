@@ -27,6 +27,8 @@ const FeedbackForm = ({category}) => {
     const searchParams = useSearchParams()
     const selected = searchParams.get("selected")
 
+    const router = useRouter()
+
     const handleRatingChange = (index, rating) => {
         // setCurrentFeedback(feedback[index].rating)
 
@@ -85,18 +87,16 @@ const FeedbackForm = ({category}) => {
             setCurrentQuestion(currentQuestion + 1);
         } else {
             // Handle navigation to review screen
-            router.push(`/summary?selected=${selected}`);
+            handleReview();
         }
     };
 
     // Navigate to review screen
     const handleReview = () => {
-        console.log("Submit data to API:", feedback);
+        router.push(`/summary?selected=${selected}`);
     }
 
-
-    const router = useRouter()
-
+    /*
     const onValueChange = (event) => {
       setFBTool(event.target.value)
     }
@@ -127,6 +127,7 @@ const FeedbackForm = ({category}) => {
         console.log(error);
       }
     }
+    */
 
     return (
         <div className="feedback-form">
