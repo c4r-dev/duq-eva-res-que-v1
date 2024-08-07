@@ -103,38 +103,6 @@ const FeedbackForm = () => {
         router.push(`/summary?selected=${selected}`);
     }
 
-    /*
-    const onValueChange = (event) => {
-      setFBTool(event.target.value)
-    }
-  
-    const handleSubmit2 = async (e) => {
-      e.preventDefault();
-  
-      if (!questionAnswer || !fbtool) {
-        alert("Selection and Answer is required to Submit.");
-        return;
-      }
-  
-      try {
-        const res = await fetch("/api/studentInput", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({ category, number, fbtool, questionAnswer }),
-        });
-  
-        if (res.ok) {
-          router.push(`/resQuesTwo?selected=${selected}`);
-        } else {
-          throw new Error("Failed to create an answer.");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    */
 
     return (
         <div className="feedback-form">

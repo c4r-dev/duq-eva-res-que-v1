@@ -19,8 +19,8 @@ export default function StartRaven() {
   function Search() {
     const searchParams = useSearchParams()
     selected = searchParams.get("rqtool")
-    return <input placeholder="Search..." />
-    // return selected;
+    // return <input placeholder="Search..." />
+    return;
   }
 
   const router = useRouter()
@@ -30,9 +30,6 @@ export default function StartRaven() {
     // const selected = Search();
     // const searchParams = useSearchParams();
     // const qrTool = searchParams.get("rqtool");
-
-
-
     router.push(`/resQuesOne?selected=${selected}`);
   };
 
