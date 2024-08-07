@@ -195,19 +195,22 @@ const FeedbackForm = () => {
 
 
             <div>
-        <Image
-          priority
-          src={Raven1}
-          alt="Follow us at c4r.io"
-          className="raven-footer-1"
-        />
-      </div>
-      <Image
-          priority
-          src={IconGroup2}
-          alt="Follow us at c4r.io"
-          className="microscope-footer-2"
-        />
+                <Image
+                    priority
+                    src={Raven1}
+                    alt="Follow us at c4r.io"
+                    className="raven-footer-1"
+                />
+            </div>
+            <div>
+                <Image
+                    priority
+                    src={IconGroup2}
+                    alt="Follow us at c4r.io"
+                    className="microscope-footer-2"
+                />                
+            </div>
+
         </div>
     );
 };

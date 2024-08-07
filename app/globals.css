@@ -157,6 +157,14 @@ header {
     left: 0;
     bottom: -150px;
     left: -100px;
+    z-index: -1;
+    @media (max-width: 1000px) {
+      /* height: 46vw; */
+      @media (max-height: 700px) {
+        height: 40vw;
+      }
+
+    }
 }
 .microscope-footer-1 {
     position: fixed;
@@ -172,6 +180,7 @@ header {
     /* height: 100%; */
     /* bottom: -150px; */
     /* right: -100px; */
+    z-index: -1;
 }
 .microscope-footer-2 {
     position: fixed;
@@ -185,7 +194,7 @@ header {
     right: -20vw;
     top: 9vh;
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
 }
 
 .raven-bubble-1 {
