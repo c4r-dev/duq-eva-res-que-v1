@@ -184,7 +184,9 @@ export default function ResQuesOne() {
           {/* <Search /> */}
         {/* </Suspense> */}
       {/* </div> */}
-      <FeedbackForm category={category}/>
+      <Suspense>
+        <FeedbackForm category={category}/>
+      </Suspense>
     </div>
   )
 }
