@@ -26,12 +26,13 @@ const questions = [
     "Assess the impact of the new health policy introduced in 2019 on the local population."
 ];
 
-const FeedbackForm = ({category}) => {
+const FeedbackForm = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [feedback, setFeedback] = useState(questions.map(() => ({ rating: '', comment: '' })));
 
     const searchParams = useSearchParams()
     const selected = searchParams.get("selected")
+    const category = selected;
 
     const router = useRouter()
 

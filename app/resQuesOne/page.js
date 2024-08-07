@@ -35,21 +35,21 @@ export default function ResQuesOne() {
   //   return
   // }
 
-  const Seach = () => {
-    const searchParams = useSearchParams()
-    setSelected(searchParams.get("selected"))
-    Questions.forEach(function (elem) {
-      if (elem.category === selected && elem.number === "1") {
-        setCategory(elem.category)
-        setNumber(elem.number)
-        setQuestion(elem.question)
-      }
-    })
-    return (
-      <div>
-      </div>
-    )
-  }
+  // const Seach = () => {
+  //   const searchParams = useSearchParams()
+  //   setSelected(searchParams.get("selected"))
+  //   Questions.forEach(function (elem) {
+  //     if (elem.category === selected && elem.number === "1") {
+  //       setCategory(elem.category)
+  //       setNumber(elem.number)
+  //       setQuestion(elem.question)
+  //     }
+  //   })
+  //   return (
+  //     <div>
+  //     </div>
+  //   )
+  // }
 
   const router = useRouter()
 

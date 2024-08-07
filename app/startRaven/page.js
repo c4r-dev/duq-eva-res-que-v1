@@ -79,6 +79,9 @@ export default function StartRaven() {
           className="microscope-footer-1"
         />
       {/* </div> */}
+      <Suspense style={{visibility: 'hidden', display: 'none'}} fallback={<div>Loading...</div>}>
+        <Search />
+      </Suspense>
 
     </>
   )
