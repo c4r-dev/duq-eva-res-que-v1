@@ -26,12 +26,13 @@ const questions = [
     "Assess the impact of the new health policy introduced in 2019 on the local population."
 ];
 
-const FeedbackForm = ({category}) => {
+const FeedbackForm = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [feedback, setFeedback] = useState(questions.map(() => ({ rating: '', comment: '' })));
 
     const searchParams = useSearchParams()
     const selected = searchParams.get("selected")
+    const category = selected;
 
     const router = useRouter()
 
@@ -102,38 +103,6 @@ const FeedbackForm = ({category}) => {
         router.push(`/summary?selected=${selected}`);
     }
 
-    /*
-    const onValueChange = (event) => {
-      setFBTool(event.target.value)
-    }
-  
-    const handleSubmit2 = async (e) => {
-      e.preventDefault();
-  
-      if (!questionAnswer || !fbtool) {
-        alert("Selection and Answer is required to Submit.");
-        return;
-      }
-  
-      try {
-        const res = await fetch("/api/studentInput", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({ category, number, fbtool, questionAnswer }),
-        });
-  
-        if (res.ok) {
-          router.push(`/resQuesTwo?selected=${selected}`);
-        } else {
-          throw new Error("Failed to create an answer.");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    */
 
     return (
         <div className="feedback-form">
@@ -226,19 +195,22 @@ const FeedbackForm = ({category}) => {
 
 
             <div>
-        <Image
-          priority
-          src={Raven1}
-          alt="Follow us at c4r.io"
-          className="raven-footer-1"
-        />
-      </div>
-      <Image
-          priority
-          src={IconGroup2}
-          alt="Follow us at c4r.io"
-          className="microscope-footer-2"
-        />
+                <Image
+                    priority
+                    src={Raven1}
+                    alt="Follow us at c4r.io"
+                    className="raven-footer-1"
+                />
+            </div>
+            <div>
+                <Image
+                    priority
+                    src={IconGroup2}
+                    alt="Follow us at c4r.io"
+                    className="microscope-footer-2"
+                />                
+            </div>
+
         </div>
     );
 };

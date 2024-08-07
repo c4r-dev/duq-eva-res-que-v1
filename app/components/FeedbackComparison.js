@@ -1,5 +1,7 @@
 // components/FeedbackForm.js
 
+'use client'
+
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useSearchParams } from "next/navigation";
