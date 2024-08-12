@@ -23,7 +23,7 @@ export default function SummaryCalc() {
     const searchParams = useSearchParams();
     const selected = searchParams.get("selected");
 
-    const [outputs, setOutput] = useState(null);
+    const [outputs, setOutputs] = useState(null);
     const [is1Visible, setIs1Visible] = useState(false);
     const [is2Visible, setIs2Visible] = useState(false);
     const [is3Visible, setIs3Visible] = useState(false);
@@ -55,7 +55,7 @@ export default function SummaryCalc() {
             try {
                 const response = await fetch("/api/studentInput");
                 const result = await response.json();
-                setOutput(result);
+                setOutputs(result);
             } catch (error) {
                 console.log("Error loading student answers: ", error);
             }
@@ -85,8 +85,13 @@ export default function SummaryCalc() {
     let q2a = [];
     let q3a = [];
 
+    const isToday = (date) => {
+        const today = new Date();
+        return date.getDate() === today.getDate() && date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear();
+    };
+
     outputs.forEach((item) => {
-        if (item.category === selected) {
+        if (item.category === selected && isToday(new Date(item.createdAt))) {
             if (item.number === "1") {
                 if (item.fbtool === "Good") {
                     q1.goodcnt++;

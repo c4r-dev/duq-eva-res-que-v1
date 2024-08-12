@@ -22,34 +22,34 @@ export default function ResQuesOne() {
   const [number, setNumber] = useState('')
   const [category, setCategory] = useState('')
 
-  // function Search() {
-  //   const searchParams = useSearchParams()
-  //   setSelected(searchParams.get("selected"))
-  //   Questions.forEach(function (elem) {
-  //     if (elem.category === selected && elem.number === "1") {
-  //       setCategory(elem.category)
-  //       setNumber(elem.number)
-  //       setQuestion(elem.question)
-  //     }
-  //   })
-  //   return
-  // }
+  function Search() {
+    const searchParams = useSearchParams()
+    setSelected(searchParams.get("selected"))
+    Questions.forEach(function (elem) {
+      if (elem.category === selected && elem.number === "1") {
+        setCategory(elem.category)
+        setNumber(elem.number)
+        setQuestion(elem.question)
+      }
+    })
+    return
+  }
 
-  // const Seach = () => {
-  //   const searchParams = useSearchParams()
-  //   setSelected(searchParams.get("selected"))
-  //   Questions.forEach(function (elem) {
-  //     if (elem.category === selected && elem.number === "1") {
-  //       setCategory(elem.category)
-  //       setNumber(elem.number)
-  //       setQuestion(elem.question)
-  //     }
-  //   })
-  //   return (
-  //     <div>
-  //     </div>
-  //   )
-  // }
+  const Seach = () => {
+    const searchParams = useSearchParams()
+    setSelected(searchParams.get("selected"))
+    Questions.forEach(function (elem) {
+      if (elem.category === selected && elem.number === "1") {
+        setCategory(elem.category)
+        setNumber(elem.number)
+        setQuestion(elem.question)
+      }
+    })
+    return (
+      <div>
+      </div>
+    )
+  }
 
   const router = useRouter()
 
@@ -180,9 +180,9 @@ export default function ResQuesOne() {
   return (
     <div>
       {/* <div className="suspense-container"> */}
-        {/* <Suspense> */}
-          {/* <Search /> */}
-        {/* </Suspense> */}
+        {/* <Suspense>
+          <Search />
+        </Suspense> */}
       {/* </div> */}
       <Suspense>
         <FeedbackForm category={category}/>

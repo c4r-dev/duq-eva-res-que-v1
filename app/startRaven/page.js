@@ -9,12 +9,8 @@ import Image from 'next/image';
 import Raven1 from '../assets/raven-1-angled.svg';
 import IconGroup2 from '../assets/icon-group-2.svg';
 
-
-
 // export default function ResQuesThree() {
 export default function StartRaven() {
-
-
   let selected = 'bs'
   function Search() {
     const searchParams = useSearchParams()
