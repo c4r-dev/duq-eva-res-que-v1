@@ -22,8 +22,45 @@ export default function SummaryCalc() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const selected = searchParams.get("selected");
+    const userInput = searchParams.get("allResponses");
+    const userInputArray = JSON.parse(userInput);
 
-    const [outputs, setOutput] = useState(null);
+    const [hasUserInput, setHasUserInput] = useState(false);
+    let q1UserInput, q2UserInput, q3UserInput;
+
+    const prepareUserInput = () => {
+        // const userInput = searchParams.get("allResponses");
+        console.log("userInput:", userInput);
+        // const userInputArray = JSON.parse(userInput);
+        console.log("userInputArray:", userInputArray);
+
+        userInputArray.forEach((input) => {
+            if (input.number === 1) {
+                q1UserInput = input;
+            } else if (input.number === 2) {
+                q2UserInput = input;
+            } else if (input.number === 3) {
+                q3UserInput = input;
+            }
+        });
+    };
+    // Try prep user input and if it doesnt fail, set hasUserInput to true
+    try {
+        prepareUserInput()
+            .then(() => {
+                setHasUserInput(true);
+            })
+            .catch((error) => {
+                console.log("Error preparing user input: ", error);
+                setHasUserInput(false);
+            });
+        // setHasUserInput(true);
+    } catch (error) {
+        console.log("Error preparing user input: ", error);
+        // setHasUserInput(false);
+    }
+
+    const [outputs, setOutputs] = useState(null);
     const [is1Visible, setIs1Visible] = useState(false);
     const [is2Visible, setIs2Visible] = useState(false);
     const [is3Visible, setIs3Visible] = useState(false);
@@ -54,8 +91,10 @@ export default function SummaryCalc() {
         const fetchData = async () => {
             try {
                 const response = await fetch("/api/studentInput");
+                console.log("response:", response);
                 const result = await response.json();
-                setOutput(result);
+                console.log("result:", result);
+                setOutputs(result);
             } catch (error) {
                 console.log("Error loading student answers: ", error);
             }
@@ -85,12 +124,22 @@ export default function SummaryCalc() {
     let q2a = [];
     let q3a = [];
 
+    const isToday = (date) => {
+        const today = new Date();
+        return (
+            date.getDate() === today.getDate() &&
+            date.getMonth() === today.getMonth() &&
+            date.getFullYear() === today.getFullYear()
+        );
+    };
+
+    // Prepare answers for each question
     outputs.forEach((item) => {
-        if (item.category === selected) {
+        if (item.category === selected && isToday(new Date(item.createdAt))) {
             if (item.number === "1") {
-                if (item.fbtool === "Good") {
+                if (item.fbtool === "good") {
                     q1.goodcnt++;
-                } else if (item.fbtool === "Better") {
+                } else if (item.fbtool === "better") {
                     q1.bettercnt++;
                 } else {
                     q1.greatcnt++;
@@ -106,9 +155,9 @@ export default function SummaryCalc() {
                     q1Answers.push(answerInstance);
                 }
             } else if (item.number === "2") {
-                if (item.fbtool === "Good") {
+                if (item.fbtool === "good") {
                     q2.goodcnt++;
-                } else if (item.fbtool === "Better") {
+                } else if (item.fbtool === "better") {
                     q2.bettercnt++;
                 } else {
                     q2.greatcnt++;
@@ -124,9 +173,9 @@ export default function SummaryCalc() {
                     q2Answers.push(answerInstance);
                 }
             } else {
-                if (item.fbtool === "Good") {
+                if (item.fbtool === "good") {
                     q3.goodcnt++;
-                } else if (item.fbtool === "Better") {
+                } else if (item.fbtool === "better") {
                     q3.bettercnt++;
                 } else {
                     q3.greatcnt++;
@@ -145,6 +194,22 @@ export default function SummaryCalc() {
         }
     });
 
+    // Remove the current user's answer from the answer's list:
+    // For each of q1Answers, q2Answers, q3Answers, remove the answer if it matches q1UserInput, q2UserInput, q3UserInput
+    q1Answers = q1Answers.filter(
+        (answer) => answer.answer !== q1UserInput.comment
+    );
+    q2Answers = q2Answers.filter(
+        (answer) => answer.answer !== q2UserInput.comment
+    );
+    q3Answers = q3Answers.filter(
+        (answer) => answer.answer !== q3UserInput.comment
+    );
+
+    // console.log("q1UserInput:", q1UserInput);
+    // console.log("q2UserInput:", q2UserInput);
+    // console.log("q3UserInput:", q3UserInput);
+
     q1.goodpct = Math.round((q1.goodcnt / q1.totalcnt) * 100);
     q1.betterpct = Math.round((q1.bettercnt / q1.totalcnt) * 100);
     q1.greatpct = Math.round((q1.greatcnt / q1.totalcnt) * 100);
@@ -157,8 +222,18 @@ export default function SummaryCalc() {
     q3.betterpct = Math.round((q3.bettercnt / q3.totalcnt) * 100);
     q3.greatpct = Math.round((q3.greatcnt / q3.totalcnt) * 100);
 
+    // Log the counts
+    console.log("q1.goodcnt:", q1.goodcnt);
+    console.log("q1.bettercnt:", q1.bettercnt);
+    console.log("q1.greatcnt:", q1.greatcnt);
+
+    // Log q1 goodpct, betterpct, greatpct
+    console.log("q1.goodpct:", q1.goodpct);
+    console.log("q1.betterpct:", q1.betterpct);
+    console.log("q1.greatpct:", q1.greatpct);
+
     function getWinner(goodPct, betterPct, greatPct) {
-        return "q1";
+        // return "q1";
 
         if (goodPct > betterPct && goodPct > greatPct) {
             return "q1";
@@ -186,7 +261,7 @@ export default function SummaryCalc() {
     };
 
     const openFinalScreen = () => {
-      router.push(`/congratulations`);
+        router.push(`/congratulations`);
     };
 
     const SummryInstance = ({
@@ -195,27 +270,55 @@ export default function SummaryCalc() {
         questionData,
         answers,
         winner,
+        userInput,
     }) => {
         // Map answers good better great to an array
         const colorMap = {
-            Good: "#FFA800",
-            Better: "#F4F734",
-            Great: "#A0FF00",
+            good: "#FFA800",
+            better: "#F4F734",
+            great: "#A0FF00",
         };
         const colorClassMap = {
-            Good: "good-color",
-            Better: "better-color",
-            Great: "great-color",
+            good: "good-color",
+            better: "better-color",
+            great: "great-color",
         };
         const getColorClass = (feedback) => {
-            console.log(feedback);
-            console.log(colorClassMap[feedback]);
+            // console.log(feedback);
+            // console.log(colorClassMap[feedback]);
             return colorClassMap[feedback];
         };
         const getColor = (feedback) => {
-            console.log(feedback);
-            console.log(colorMap[feedback]);
+            // console.log(feedback);
+            // console.log(colorMap[feedback]);
             return colorMap[feedback];
+        };
+
+        // Render 3 elements in column with "YOUR VOTE" positioned based on userInput.rating
+        const renderVoteIndicator = (userInput) => {
+            // Render 3 p elements, where 1 contains "YOUR VOTE" and the other are blank
+            const voteIndicators = ["", "", ""];
+            const voteIndex =
+                userInput.rating === "good"
+                    ? 0
+                    : userInput.rating === "better"
+                    ? 1
+                    : 2;
+            voteIndicators[voteIndex] = "YOUR VOTE";
+            // Based on VoteIndex, render with appropriate class
+            return (
+                <>
+                    <p className={voteIndex === 0 ? "your-vote" : ""}>
+                        {voteIndicators[0]}
+                    </p>
+                    <p className={voteIndex === 1 ? "your-vote" : ""}>
+                        {voteIndicators[1]}
+                    </p>
+                    <p className={voteIndex === 2 ? "your-vote" : ""}>
+                        {voteIndicators[2]}
+                    </p>
+                </>
+            );
         };
 
         const [showAnswers, setShowAnswers] = useState(false);
@@ -223,7 +326,7 @@ export default function SummaryCalc() {
         const toggleAnswersVisibility = () => {
             // Calculate pixle height of answers
             const answersHeight = answers.length * 100;
-            console.log(answersHeight);
+            // console.log(answersHeight);
 
             setShowAnswers(!showAnswers);
 
@@ -236,18 +339,31 @@ export default function SummaryCalc() {
                 <h2>{title}</h2>
                 <h3>{question}</h3>
                 <div className="summary-instance-stats-area">
-                    {/* <h1>Good : Better : Great</h1>
-          <h1>{q1.goodpct}% {q1.betterpct}% {q1.greatpct}%</h1> */}
-
-                    <div className="stats-column">
-                        <p>YOUR VOTE</p>
+                    <div className="stats-column your-vote-column">
+                        {renderVoteIndicator(userInput)}
                     </div>
                     <div className="stats-column">
-                        <p className={winner === "q1" ? "winner" : ""}>GOOD</p>
-                        <p className={winner === "q2" ? "winner" : ""}>
+                        <p
+                            className={
+                                userInput.rating === "good" ? "winner" : ""
+                            }
+                        >
+                            GOOD
+                        </p>
+                        <p
+                            className={
+                                userInput.rating === "better" ? "winner" : ""
+                            }
+                        >
                             BETTER
                         </p>
-                        <p className={winner === "q3" ? "winner" : ""}>GREAT</p>
+                        <p
+                            className={
+                                userInput.rating === "great" ? "winner" : ""
+                            }
+                        >
+                            GREAT
+                        </p>
                     </div>
                     <div className="stats-column pct-column">
                         <p>{questionData.goodpct}%</p>
@@ -282,36 +398,24 @@ export default function SummaryCalc() {
                         showAnswers ? "" : "collapsed"
                     }`}
                 >
-                                          <div
-                           
-                            className={`summary-instance-answer-bubble right`}
-                        >
+                    <div className={`summary-instance-answer-bubble right`}>
+                        <div className={`answer-bubble right`}>
                             <div
-                                className={`answer-bubble right`}
+                                className={`answer-bubble-body right your-color`}
                             >
-                                <div
-                                    className={`answer-bubble-body right your-color`}
-
-                                >
-                                    <h1>test123</h1>
-                                    {/* <h1>{item.feedback}</h1> */}
-                                </div>
-                                <div
-                                    className={`answer-bubble-triangle right your-color`}
-                                ></div>
-                                <div
-                                    className={`answer-bubble-icon right`}
-                                >
-
-                                        <Image
-                                            src={ravenChatIcon1}
-                                            alt="Raven Chat Icon 1"
-                                        />
-
-
-                                </div>
+                                <h1>{userInput.comment}</h1>
+                            </div>
+                            <div
+                                className={`answer-bubble-triangle right your-color`}
+                            ></div>
+                            <div className={`answer-bubble-icon right`}>
+                                <Image
+                                    src={ravenChatIcon1}
+                                    alt="Raven Chat Icon 1"
+                                />
                             </div>
                         </div>
+                    </div>
                     <p>Other answers</p>
                     {/*  Render alternating speech bubbles */}
                     {answers.map((item, index) => (
@@ -386,6 +490,7 @@ export default function SummaryCalc() {
                         questionData={q1}
                         answers={q1Answers}
                         winner={q1Winner}
+                        userInput={q1UserInput}
                     />
                     <SummryInstance
                         title="Research Question 2"
@@ -393,6 +498,7 @@ export default function SummaryCalc() {
                         questionData={q2}
                         answers={q2Answers}
                         winner={q2Winner}
+                        userInput={q2UserInput}
                     />
                     <SummryInstance
                         title="Research Question 3"
@@ -400,17 +506,19 @@ export default function SummaryCalc() {
                         questionData={q3}
                         answers={q3Answers}
                         winner={q3Winner}
+                        userInput={q3UserInput}
                     />
 
                     <div className="summary-area-footer">
-                        <button className="summary-continue-button" onClick={openFinalScreen}>
+                        <button
+                            className="summary-continue-button"
+                            onClick={openFinalScreen}
+                        >
                             CONTINUE
                         </button>
                     </div>
                 </div>
             </div>
-
-
 
             <div>
                 <Image
