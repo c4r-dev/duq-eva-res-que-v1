@@ -1,7 +1,7 @@
 // components/FeedbackForm.js
 'use client'
 
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 
@@ -63,6 +63,8 @@ const FeedbackForm = () => {
     }
     ]);
 
+    const [allResponses, setAllResponses] = useState([]);
+
     const searchParams = useSearchParams()
     const selected = searchParams.get("selected")
     const category = selected;
@@ -72,6 +74,16 @@ const FeedbackForm = () => {
     currentQuestions = loadQuestionFromCategory(category);
     console.log("currentQuestions", currentQuestions);
 
+    // useEffect(() => {
+    //     console.log("feedback", feedback);
+    // }, [feedback]);
+
+    useEffect(() => {
+        console.log("allResponses", allResponses);
+        if (allResponses.length === currentQuestions.length) {
+            handleReview();
+        }
+    }, [allResponses]);
 
     const handleRatingChange = (index, rating) => {
         // setCurrentFeedback(feedback[index].rating)
@@ -85,6 +97,14 @@ const FeedbackForm = () => {
         newFeedback[index].comment = comment;
         setFeedback(newFeedback);
     };
+
+    // 
+    useEffect(() => {
+        console.log("allResponses", allResponses);
+        if (allResponses.length === currentQuestions.length) {
+            handleReview();
+        }
+    }, [allResponses]);
 
     const handleSubmit = async () => {
         console.log(feedback);
@@ -115,8 +135,17 @@ const FeedbackForm = () => {
             });
     
             if (res.ok) {
-                // router.push(`/summary`);
                 console.log("Successfully submitted");
+                // Create an onbject with currentFeedback's data
+                const newResponse = {
+                    ...currentFeedback,
+                    category,
+                    number,
+                    questionAnswer
+                }
+                // Append the current feedback to the allResponses array
+                setAllResponses([...allResponses, newResponse]);
+
             } else {
             throw new Error("Failed to create an answer.");
             }
@@ -124,19 +153,16 @@ const FeedbackForm = () => {
             console.log(error);
         }
 
-
         // If there are more questions, navigate to the next question
         if (currentQuestion < currentQuestions.length - 1) {
             setCurrentQuestion(currentQuestion + 1);
-        } else {
-            // Handle navigation to review screen
-            handleReview();
         }
     };
 
     // Navigate to review screen
     const handleReview = () => {
-        router.push(`/summary?selected=${selected}`);
+        // Also push the allResponses to the URL
+        router.push(`/summary?selected=${selected}&allResponses=${JSON.stringify(allResponses)}`);
     }
 
 
@@ -246,7 +272,6 @@ const FeedbackForm = () => {
                     className="microscope-footer-2"
                 />                
             </div>
-
         </div>
     );
 };
