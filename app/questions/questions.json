@@ -1,46 +1,46 @@
 [{
   "category": "ph",
   "number": "1",
-  "question": "Determine whether disparities in the receipt of appropriate analgesia exist among people with arthritis with chronic pain."
+  "question": "Evaluate the prevalence of medically resistant epilepsy in the hospitalized setting."
 },
 {
   "category": "ph",
   "number": "2",
-  "question": "Does exercise reduce depression more than selective serotonin reuptake inhibitors in adults?"
+  "question": "Describe the existing care for patients with traumatic brain injury and the outcomes."
 },
 {
   "category": "ph",
   "number": "3",
-  "question": "How common is epilepsy in children?"
+  "question": "Identify whether consumption of antioxidant-rich foods from the Mediterranean diet is associated with better cognitive performance in a cohort of elderly persons at high risk for coronary heart disease."
 },
 {
   "category": "cs",
   "number": "1",
-  "question": "Is daily aerobic exercise more effective than stretching for improvement of pain symptoms in sedentary patients with arthritis aged 30-75 with moderate disease severity?"
+  "question": "Determine whether apixaban is superior to aspirin in preventing stroke recurrence."
 },
 {
   "category": "cs",
   "number": "2",
-  "question": "Is antiplatelet medication administered after an myocardial infarction superior to aspirin?"
+  "question": "Explore the effects of music therapy on cognitive function in patients with Alzheimer’s disease."
 },
 {
   "category": "cs",
   "number": "3",
-  "question": "Explore the effects of music therapy on cognitive function and mental wellbeing of patients with dementia."
+  "question": "Evaluate the efficacy (as measured by change in Montgomery-Åsberg Depression Rating Scale [MADRS] 24 hours after treatment) in adolescent patients with treatment-resistant major depressive disorder randomized to either intravenous ketamine or midazolam."
 },
 {
   "category": "bs",
   "number": "1",
-  "question": "Investigate the susceptibility of the blood brain barrier and model SARS-CoV-1 infection in the endothelial cell layer of the neurovascular unit."
-},
-{
-  "category": "bs",
-  "number": "2",
-  "question": "Explore the influence of exosomes derived from neural stem cells on the spinal cord regeneration."
-},
-{
-  "category": "bs",
-  "number": "3",
   "question": "Identify the role of α-synuclein phosphorylated at Serine129 (pS129) in neuronal activity."
+},
+{
+  "category": "bs",
+  "number": "2",
+  "question": "Explore the influence of exosomes derived from neural stem cells on the spinal cord microvascular regeneration after spinal cord injury."
+},
+{
+  "category": "bs",
+  "number": "3",
+  "question": "Evaluate the susceptibility of the blood brain barrier to SARS-CoV-2 infection based on 1) evidence of interferon upregulation in the neurovascular unit in cases of fatal COVID-19 and 2) changes to transcription, paracellular tightness, and viral replication and transport in a cultured cell model of neurovascular endothelium."
 }
 ]
