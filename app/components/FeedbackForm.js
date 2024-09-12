@@ -181,7 +181,7 @@ const FeedbackForm = () => {
             </div>
             <div className="question-content">
                 <h2>{currentQuestions[currentQuestion]}</h2>
-                <h2>How good is this research question?</h2>
+                <h2>How would you rate this question?</h2>
                 <div className="feedback-options">
                     <label>
                         <input
